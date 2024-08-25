@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register Swimmer</title>
+</head>
+<body>
+    <h1>Register Swimmer</h1>
+    <form id="registerForm">
+        <label for="name">Name:</label><br>
+        <input type="text" id="name" name="name"><br>
+        <label for="age">Age:</label><br>
+        <input type="number" id="age" name="age"><br>
+        <label for="age_group">Age Group:</label><br>
+        <input type="number" id="age_group" name="age_group" min="1" max="5"><br>
+        <label for="gender">Gender:</label><br>
+        <input type="text" id="gender" name="gender"><br>
+        <label for="club">Club:</label><br>
+        <input type="text" id="club" name="club"><br>
+        <label for="events">Events:</label><br>
+        <select multiple id="events" name="events"></select><br><br>
+        <input type="submit" value="Register">
+    </form>
+
+    <script>
+        // Fetch events from events.json
+        fetch('events.json')
+            .then(response => response.json())
+            .then(events => {
+                const eventsSelect = document.getElementById('events');
+                events.forEach(event => {
+                    const option = document.createElement('option');
+                    option.value = event.id;
+                    option.text = `${event.distance}m ${event.stroke}`;
+                    eventsSelect.appendChild(option);
+                });
+            });
+
+        // Update the URL to include the port number
+        const url = 'http://localhost:8000/swimmers/';
+
+        // Handle form submission
+        document.getElementById('registerForm').addEventListener('submit', (event) => {
+            event.preventDefault();
+            const form = event.target;
+            const formData = new FormData(form);
+
+            fetch(url, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(Object.fromEntries(formData))
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Failed to register swimmer');
+                }
+                return response.json();
+            })
+            .then(data => {
+                alert('Swimmer registered successfully');
+                form.reset();
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('Failed to register swimmer');
+            });
+        });
+
+    </script>
+</body>
+</html>

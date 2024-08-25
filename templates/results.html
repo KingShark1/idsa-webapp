@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Indore District Swimming Association</title>
+    <link rel="stylesheet" href="/static/css/styles.css">
+    <link rel="stylesheet" href="/static/css/results.css">
+</head>
+<body>
+    <header>
+        <h1>Indore District Swimming Association</h1>
+    </header>
+    <main>
+        {% block content %}
+        <h2>District Swimming Championship Results</h2>
+        {% endblock %}
+    </main>
+    <div class="container">
+        <div class="left">
+            <h2>Event Results</h2>
+            <button id="toggleTop3">Show Top 3</button>
+            {% for event in results %}
+                <div>
+                    <h3>{{ event.name }}
+                        {% if event.age_group == 0 %}
+                            Senior {{ "Men" if event.gender == "male" else "Women" }}
+                        {% else %}
+                            {{ "Boys" if event.gender == "male" else "Girls" }} Group {{ event.age_group }}
+                        {% endif %}</h3>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Position</th>
+                                <th>Name</th>
+                                <th>DOB</th>
+                                <th>SFI ID</th>
+                                <th>Club</th>
+                                <th>Time</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% if event.participants %}
+                                {% for participant in event.participants %}
+                                    <tr class="participant-row">
+                                        <td>{{ loop.index }}</td>
+                                        <td>{{ participant.swimmer.name }}</td>
+                                        <td>{{ participant.swimmer.dob | format_date }}</td>
+                                        <td>{{ participant.swimmer.sfi_id }}</td>
+                                        <td>{{ participant.swimmer.club }}</td>
+                                        <td>{{ participant.time or "results pending" }}</td>
+                                    </tr>
+                                {% endfor %}
+                            {% else %}
+                                <tr>
+                                    <td colspan="5">No participants</td>
+                                </tr>
+                            {% endif %}
+                        </tbody>
+                    </table>
+                </div>
+            {% endfor %}
+        </div>
+        <div class="right">
+            <h2>Championship Standings</h2>
+            {% for (age_group, gender), standings in standings.items() %}
+                
+                <h3>{{ "Senior" if age_group == 0 else "Group " + age_group|string }} {{ "Boys" if gender == "Male" else "Girls" }}</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Rank</th>
+                            <th>Name</th>
+                            <th>Club</th>
+                            <th>Points</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for standing in standings %}
+                            <tr>
+                                <td>{{ loop.index}}</td>
+                                <td>{{ standing.swimmer.name }}</td>
+                                <td>{{ standing.swimmer.club }}</td>
+                                <td>{{ standing.points }}</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            {% endfor %}
+        </div>
+    </div>
+
+    <script src="/static/js/results.js"></script>
+</body>
+</html>

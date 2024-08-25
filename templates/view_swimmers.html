@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+{% block content %}   
+    <!-- Search form -->
+    <form id="searchForm">
+        <label for="searchName">Search by Name:</label>
+        <input type="text" id="searchName" name="searchName">
+        <button type="submit">Search</button>
+    </form>
+
+    <!-- Filter form -->
+    <form id="filterForm">
+        <label for="ageGroup">Age Group:</label>
+        <select id="ageGroup" name="ageGroup">
+            <option value="">All</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+        </select>
+
+        <label for="gender">Gender:</label>
+        <select id="gender" name="gender">
+            <option value="">All</option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+        </select>
+
+        <label for="event">Event:</label>
+        <select id="event" name="event">
+            <option value="">All</option>
+            <!-- Fetch events from backend and populate options dynamically -->
+        </select>
+
+        <button type="submit">Filter</button>
+    </form>
+
+    <!-- Table to display swimmers -->
+    <table id="swimmersTable">
+        <thead>
+            <tr>
+                <th>Delete</th>
+                <th>Name</th>
+                <th>DOB</th>
+                <th>Age Group</th>
+                <th>Gender</th>
+                <th>SFI ID</th>
+                <th>Club</th>
+                <th>Events</th>
+            </tr>
+        </thead>
+        <tbody id="swimmersBody">
+            <!-- Swimmers will be displayed here -->
+        </tbody>
+    </table>
+
+    <script src="/static/js/view_swimmers.js"></script>
+
+{% endblock %}

@@ -1,0 +1,114 @@
+/* Basic styles for layout */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f9fa;
+}
+
+header {
+    background-color: #007bff;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+h1 {
+    margin: 0;
+}
+
+main {
+    padding: 20px;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.left, .right {
+    width: 48%;
+}
+
+.left {
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.right {
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+h2, h3 {
+    margin-top: 0;
+}
+
+button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Ensuring same width for each column in tables on the left, with a narrower width for the position column */
+.left table th:first-child,
+.left table td:first-child {
+    width: 5%; /* Adjust this percentage as needed for the position column */
+}
+
+
+.left table th:last-child,
+.left table td:last-child {
+    width: 20%; /* Adjust this percentage as needed for the position column */
+}
+
+.left table th:not(:first-child),
+.left table td:not(:first-child) {
+    width: 20%; /* Adjust this percentage to fit the table width, for remaining columns */
+}
+
+/* Ensuring same width for each column in tables on the left, with a narrower width for the position column */
+.right table th:first-child,
+.right table td:first-child {
+    width: 10%; /* Adjust this percentage as needed for the position column */
+}
+
+
+.right table th:last-child,
+.right table td:last-child {
+    width: 20%; /* Adjust this percentage as needed for the position column */
+}
+
+.right table th:not(:first-child),
+.right table td:not(:first-child) {
+    width: 20%; /* Adjust this percentage to fit the table width, for remaining columns */
+}
