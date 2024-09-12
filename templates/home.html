@@ -44,11 +44,9 @@
                     </tr>
                 </table>
                 <select id="age_group" name="age_group" required>
-                    <option value="0">Senior</option>
-                    <option value="1">Group 1</option>
-                    <option value="2">Group 2</option>
-                    <option value="3">Group 3</option>
-                    <option value="4">Group 4</option>                    
+                    {% for display_name, value in age_group_map.items() %}
+                        <option value="{{ value }}"> {{ display_name }}</option>
+                    {% endfor %}
                 </select>
             </div>
 
@@ -95,33 +93,33 @@
         <table id="last-swimmer" class="table">
             <tr>
                 <td><strong>Name:</strong></td>
-                <td>{{ swimmers[-1].name }}</td>
+                <td>{{ swimmers.name }}</td>
             </tr>
             <tr>
                 <td><strong>Date of Birth:</strong></td>
-                <td>{{ swimmers[-1].dob | format_date }}</td>
+                <td>{{ swimmers.dob | format_date }}</td>
             </tr>
             <tr>
                 <td><strong>Age Group:</strong></td>
-                <td>{{ swimmers[-1].age_group }}</td>
+                <td>{{ swimmers.age_group }}</td>
             </tr>
             <tr>
                 <td><strong>Gender:</strong></td>
-                <td>{{ swimmers[-1].gender }}</td>
+                <td>{{ swimmers.gender }}</td>
             </tr>
             <tr>
                 <td><strong>Club:</strong></td>
-                <td>{{ swimmers[-1].club }}</td>
+                <td>{{ swimmers.club.name }}</td>
             </tr>
             <tr>
                 <td><strong>SFI ID:</strong></td>
-                <td>{{ swimmers[-1].sfi_id }}</td>
+                <td>{{ swimmers.sfi_id }}</td>
             </tr>
             <tr>
                 <td><strong>Events:</strong></td>
                 <td>
                     <ul>
-                        {% for event in swimmers[-1].events %}
+                        {% for event in swimmers.events %}
                         <li>{{ event.event.name }}</li>
                         {% endfor %}
                     </ul>

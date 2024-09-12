@@ -17,29 +17,25 @@ import json
 def convert_csv_to_json(csv_file, json_file):
     events = []
 
+    with open('static/config.json', 'r') as config_file:
+        config = json.load(config_file)
+    
+    assert "age_group_map" in config
+    assert "gender_map" in config
+    assert "time_trial_map" in config
+
     # Age group and gender mapping
-    age_group_map = {
-        "Senior": 0,
-        "I": 1,
-        "II": 2,
-        "III": 3,
-        "IV": 4
-    }
-    gender_map = {
-        "Men": "male",
-        "Boys": "male",
-        "Women": "female",
-        "Girls": "female"
-    }
 
     with open(csv_file, newline='') as csvfile:
         reader = csv.DictReader(csvfile)
         for row in reader:
             event = {
-                "id": int(row["S.N."]),
-                "name": row["Event Name"],
-                "age_group": age_group_map.get(row["Group"], -1),
-                "gender": gender_map.get(row["Category"], "unknown")
+                "id": int(row["Event No"]),
+                "name": row["Event"],
+                "age_group": config["age_group_map"].get(row["Age Group"], -1),
+                "gender": config["gender_map"].get(row["Gender"], "unknown"),
+                "time_trial": config["time_trial_map"].get(row["Mode"], 1)
+
             }
             events.append(event)
 
@@ -58,7 +54,7 @@ def load_events():
             events = json.load(file)
 
         # Check if the event already exists to prevent duplicates
-        new_events = [Event(id=e["id"], name=e["name"], age_group=e["age_group"], gender=e["gender"])
+        new_events = [Event(id=e["id"], name=e["name"], age_group=e["age_group"], gender=e["gender"], time_trial=e["time_trial"])
                       for e in events]
 
         db.add_all(new_events)
@@ -69,5 +65,5 @@ def load_events():
         db.close()
 
 if __name__ == "__main__":
-    convert_csv_to_json('event_chart.csv', 'events.json')
+    convert_csv_to_json('CBSE West Zone 2024 - EventChart.csv', 'events.json')
     load_events()

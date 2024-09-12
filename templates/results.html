@@ -21,51 +21,90 @@
             <h2>Event Results</h2>
             <button id="toggleTop3">Show Top 3</button>
             {% for event in results %}
-                <div>
-                    <h3>{{ event.name }}
-                        {% if event.age_group == 0 %}
-                            Senior {{ "Men" if event.gender == "male" else "Women" }}
-                        {% else %}
-                            {{ "Boys" if event.gender == "male" else "Girls" }} Group {{ event.age_group }}
-                        {% endif %}</h3>
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Position</th>
-                                <th>Name</th>
-                                <th>DOB</th>
-                                <th>SFI ID</th>
-                                <th>Club</th>
-                                <th>Time</th>
+    <div>
+        <h3>{{ event.id }} : {{ event.name }}
+            {% if event.age_group == 0 %}
+                Senior {{ "Men" if event.gender == "male" else "Women" }}
+            {% else %}
+                {{ "Boys" if event.gender == "male" else "Girls" }} Group {{ event.age_group }}
+            {% endif %}
+        </h3>
+        {% if event.relay %}
+            <!-- Display Relay Event Results -->
+            <table>
+                <thead>
+                    <tr>
+                        <th>Position</th>
+                        <th>Club</th>
+                        <th>Swimmers</th>
+                        <th>Time</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% if event.participants %}
+                        {% for participant in event.participants %}
+                            <tr class="participant-row">
+                                <td>{{ loop.index }}</td>
+                                <td>{{ participant.club_name }}</td>
+                                <td>
+                                    <ul>
+                                        {% for swimmer_name in participant.swimmers %}
+                                            <li>{{ swimmer_name }}</li>
+                                        {% endfor %}
+                                    </ul>
+                                </td>
+                                <td>{{ participant.time or "results pending" }}</td>
                             </tr>
-                        </thead>
-                        <tbody>
-                            {% if event.participants %}
-                                {% for participant in event.participants %}
-                                    <tr class="participant-row">
-                                        <td>{{ loop.index }}</td>
-                                        <td>{{ participant.swimmer.name }}</td>
-                                        <td>{{ participant.swimmer.dob | format_date }}</td>
-                                        <td>{{ participant.swimmer.sfi_id }}</td>
-                                        <td>{{ participant.swimmer.club }}</td>
-                                        <td>{{ participant.time or "results pending" }}</td>
-                                    </tr>
-                                {% endfor %}
-                            {% else %}
-                                <tr>
-                                    <td colspan="5">No participants</td>
-                                </tr>
-                            {% endif %}
-                        </tbody>
-                    </table>
-                </div>
-            {% endfor %}
+                        {% endfor %}
+                    {% else %}
+                        <tr>
+                            <td colspan="4">No participants</td>
+                        </tr>
+                    {% endif %}
+                </tbody>
+            </table>
+        {% else %}
+            <!-- Display Regular Event Results -->
+            <table>
+                <thead>
+                    <tr>
+                        <th>Position</th>
+                        <th>Name</th>
+                        <th>DOB</th>
+                        <th>SFI ID</th>
+                        <th>Club</th>
+                        <th>Time</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% if event.participants %}
+                        {% for participant in event.participants %}
+                            <tr class="participant-row">
+                                <td>{{ loop.index }}</td>
+                                <td>{{ participant.swimmer.name }}</td>
+                                <td>{{ participant.swimmer.dob | format_date }}</td>
+                                <td>{{ participant.swimmer.sfi_id }}</td>
+                                <td>{{ participant.swimmer.club.name }}</td>
+                                <td>{{ participant.time or "results pending" }}</td>
+                            </tr>
+                        {% endfor %}
+                    {% else %}
+                        <tr>
+                            <td colspan="5">No participants</td>
+                        </tr>
+                    {% endif %}
+                </tbody>
+            </table>
+        {% endif %}
+    </div>
+{% endfor %}
+
         </div>
         <div class="right">
             <h2>Championship Standings</h2>
             {% for (age_group, gender), standings in standings.items() %}
                 
-                <h3>{{ "Senior" if age_group == 0 else "Group " + age_group|string }} {{ "Boys" if gender == "Male" else "Girls" }}</h3>
+                <h3>{{ "Senior" if age_group == 0 else "Group " + age_group|string }} {{ "Boys" if gender == "male" else "Girls" }}</h3>
                 <table>
                     <thead>
                         <tr>
@@ -87,6 +126,25 @@
                     </tbody>
                 </table>
             {% endfor %}
+            <h2>Club Standings</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Rank</th>
+                            <th>Club</th>
+                            <th>Total Points</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for club in club_standings %}
+                            <tr>
+                                <td>{{ loop.index }}</td>
+                                <td>{{ club.name }}</td>
+                                <td>{{ club.total_points }}</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
         </div>
     </div>
 

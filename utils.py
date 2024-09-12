@@ -5,14 +5,7 @@ from datetime import datetime
 lane_order = [4, 5, 3, 6, 2, 7, 1, 8]
 
 
-# Define points for each medal
-MEDAL_POINTS = {
-    1: 5,  # Gold
-    2: 3,   # Silver
-    3: 1    # Bronze
-}
-
-def load_events(file_path: str):
+def load_json(file_path: str):
     with open(file_path, 'r') as file:
         events = json.load(file)
     return events
