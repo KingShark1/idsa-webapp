@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 {% block content %}   
     <!-- Search form -->
+    <link rel="stylesheet" href="/static/css/view_swimmers.css">
     <form id="searchForm">
         <label for="searchName">Search by Name:</label>
         <input type="text" id="searchName" name="searchName">
@@ -46,6 +47,8 @@
                 <th>SFI ID</th>
                 <th>Club</th>
                 <th>Events</th>
+                <th>Manage Events</th>
+                
             </tr>
         </thead>
         <tbody id="swimmersBody">
@@ -54,5 +57,8 @@
     </table>
 
     <script src="/static/js/view_swimmers.js"></script>
+    
+    
+
 
 {% endblock %}

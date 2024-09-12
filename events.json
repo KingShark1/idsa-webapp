@@ -1,818 +1,842 @@
 [
     {
         "id": 1,
-        "name": "1500 mt. Free Style",
-        "age_group": 0,
-        "gender": "male"
+        "name": "50 mt. Butterfly Stroke",
+        "age_group": 1,
+        "gender": "male",
+        "time_trial": 0
     },
     {
         "id": 2,
-        "name": "1500 mt. Free Style",
-        "age_group": 0,
-        "gender": "female"
+        "name": "50 mt. Butterfly Stroke",
+        "age_group": 1,
+        "gender": "female",
+        "time_trial": 0
     },
     {
         "id": 3,
         "name": "1500 mt. Free Style",
         "age_group": 1,
-        "gender": "male"
+        "gender": "male",
+        "time_trial": 1
     },
     {
         "id": 4,
-        "name": "1500 mt. Free Style",
-        "age_group": 1,
-        "gender": "female"
+        "name": "50 mt. Butterfly Stroke",
+        "age_group": 4,
+        "gender": "male",
+        "time_trial": 0
     },
     {
         "id": 5,
-        "name": "1500 mt. Free Style",
-        "age_group": 2,
-        "gender": "male"
+        "name": "50 mt. Butterfly Stroke",
+        "age_group": 4,
+        "gender": "female",
+        "time_trial": 0
     },
     {
         "id": 6,
-        "name": "1500 mt. FreeStyle",
-        "age_group": 2,
-        "gender": "female"
+        "name": "50 mt. Butterfly Stroke",
+        "age_group": 3,
+        "gender": "male",
+        "time_trial": 0
     },
     {
         "id": 7,
-        "name": "200 mt. Back Stroke",
-        "age_group": 1,
-        "gender": "male"
+        "name": "50 mt. Butterfly Stroke",
+        "age_group": 3,
+        "gender": "female",
+        "time_trial": 0
     },
     {
         "id": 8,
-        "name": "200 mt. Back Stroke",
-        "age_group": 1,
-        "gender": "female"
+        "name": "50 mt. Butterfly Stroke",
+        "age_group": 2,
+        "gender": "male",
+        "time_trial": 0
     },
     {
         "id": 9,
-        "name": "200 mt. Back Stroke",
+        "name": "50 mt. Butterfly Stroke",
         "age_group": 2,
-        "gender": "male"
+        "gender": "female",
+        "time_trial": 0
     },
     {
         "id": 10,
-        "name": "200 mt. Back Stroke",
-        "age_group": 2,
-        "gender": "female"
+        "name": "100 mt. Breast Stroke",
+        "age_group": 3,
+        "gender": "male",
+        "time_trial": 0
     },
     {
         "id": 11,
-        "name": "200 mt. Back Stroke",
-        "age_group": 0,
-        "gender": "male"
+        "name": "100 mt. Breast Stroke",
+        "age_group": 3,
+        "gender": "female",
+        "time_trial": 0
     },
     {
         "id": 12,
-        "name": "200 mt. Back Stroke",
-        "age_group": 0,
-        "gender": "female"
+        "name": "100 mt. Breast Stroke",
+        "age_group": 2,
+        "gender": "male",
+        "time_trial": 0
     },
     {
         "id": 13,
-        "name": "200 mt. I.M.",
-        "age_group": 1,
-        "gender": "male"
+        "name": "100 mt. Breast Stroke",
+        "age_group": 2,
+        "gender": "female",
+        "time_trial": 0
     },
     {
         "id": 14,
-        "name": "200 mt. I.M.",
+        "name": "100 mt. Breast Stroke",
         "age_group": 1,
-        "gender": "female"
+        "gender": "male",
+        "time_trial": 0
     },
     {
         "id": 15,
-        "name": "200 mt. I.M.",
-        "age_group": 2,
-        "gender": "male"
+        "name": "100 mt. Breast Stroke",
+        "age_group": 1,
+        "gender": "female",
+        "time_trial": 0
     },
     {
         "id": 16,
-        "name": "200 mt. I.M.",
-        "age_group": 2,
-        "gender": "female"
+        "name": "200 mt. Free Style",
+        "age_group": 3,
+        "gender": "male",
+        "time_trial": 1
     },
     {
         "id": 17,
-        "name": "200 mt. I.M.",
+        "name": "200 mt. Free Style",
         "age_group": 3,
-        "gender": "male"
+        "gender": "female",
+        "time_trial": 1
     },
     {
         "id": 18,
-        "name": "200 mt. I.M.",
-        "age_group": 3,
-        "gender": "female"
+        "name": "200 mt. Free Style",
+        "age_group": 2,
+        "gender": "male",
+        "time_trial": 1
     },
     {
         "id": 19,
-        "name": "200 mt. I.M.",
-        "age_group": 4,
-        "gender": "male"
+        "name": "200 mt. Free Style",
+        "age_group": 2,
+        "gender": "female",
+        "time_trial": 1
     },
     {
         "id": 20,
-        "name": "200 mt. I.M.",
-        "age_group": 4,
-        "gender": "female"
+        "name": "200 mt. Free Style",
+        "age_group": 1,
+        "gender": "male",
+        "time_trial": 1
     },
     {
         "id": 21,
-        "name": "200 mt. I.M.",
-        "age_group": 0,
-        "gender": "male"
+        "name": "200 mt. Free Style",
+        "age_group": 1,
+        "gender": "female",
+        "time_trial": 1
     },
     {
         "id": 22,
-        "name": "200 mt. I.M.",
-        "age_group": 0,
-        "gender": "female"
+        "name": "800 mt. Free Style",
+        "age_group": 1,
+        "gender": "female",
+        "time_trial": 1
     },
     {
         "id": 23,
-        "name": "200 mt. Butterfly Stroke",
-        "age_group": 1,
-        "gender": "male"
+        "name": "800 mt. Free Style",
+        "age_group": 2,
+        "gender": "female",
+        "time_trial": 1
     },
     {
         "id": 24,
-        "name": "200 mt. Butterfly Stroke",
-        "age_group": 1,
-        "gender": "female"
+        "name": "50 mt. Breast Stroke",
+        "age_group": 4,
+        "gender": "male",
+        "time_trial": 0
     },
     {
         "id": 25,
-        "name": "200 mt. Butterfly Stroke",
-        "age_group": 2,
-        "gender": "male"
+        "name": "50 mt. Breast Stroke",
+        "age_group": 4,
+        "gender": "female",
+        "time_trial": 0
     },
     {
         "id": 26,
-        "name": "200 mt. Butterfly Stroke",
-        "age_group": 2,
-        "gender": "female"
+        "name": "50 mt. Breast Stroke",
+        "age_group": 3,
+        "gender": "male",
+        "time_trial": 0
     },
     {
         "id": 27,
-        "name": "200 mt. Butterfly Stroke",
-        "age_group": 0,
-        "gender": "male"
+        "name": "50 mt. Breast Stroke",
+        "age_group": 3,
+        "gender": "female",
+        "time_trial": 0
     },
     {
         "id": 28,
-        "name": "200 mt. Butterfly Stroke",
-        "age_group": 0,
-        "gender": "female"
+        "name": "50 mt. Breast Stroke",
+        "age_group": 2,
+        "gender": "male",
+        "time_trial": 0
     },
     {
         "id": 29,
-        "name": "400 mt. Free Style",
-        "age_group": 1,
-        "gender": "male"
+        "name": "50 mt. Breast Stroke",
+        "age_group": 2,
+        "gender": "female",
+        "time_trial": 0
     },
     {
         "id": 30,
-        "name": "400 mt. Free Style",
+        "name": "50 mt. Breast Stroke",
         "age_group": 1,
-        "gender": "female"
+        "gender": "male",
+        "time_trial": 0
     },
     {
         "id": 31,
-        "name": "400 mt. Free Style",
-        "age_group": 2,
-        "gender": "male"
+        "name": "50 mt. Breast Stroke",
+        "age_group": 1,
+        "gender": "female",
+        "time_trial": 0
     },
     {
         "id": 32,
-        "name": "400 mt. Free Style",
-        "age_group": 2,
-        "gender": "female"
+        "name": "100 mt. Back Stroke",
+        "age_group": 3,
+        "gender": "male",
+        "time_trial": 0
     },
     {
         "id": 33,
-        "name": "400 mt. Free Style",
+        "name": "100 mt. Back Stroke",
         "age_group": 3,
-        "gender": "male"
+        "gender": "female",
+        "time_trial": 0
     },
     {
         "id": 34,
-        "name": "400 mt. Free Style",
-        "age_group": 3,
-        "gender": "female"
+        "name": "100 mt. Back Stroke",
+        "age_group": 2,
+        "gender": "male",
+        "time_trial": 0
     },
     {
         "id": 35,
-        "name": "400 mt. Free Style",
-        "age_group": 0,
-        "gender": "male"
+        "name": "100 mt. Back Stroke",
+        "age_group": 2,
+        "gender": "female",
+        "time_trial": 0
     },
     {
         "id": 36,
-        "name": "400 mt. Free Style",
-        "age_group": 0,
-        "gender": "female"
+        "name": "100 mt. Back Stroke",
+        "age_group": 1,
+        "gender": "male",
+        "time_trial": 0
     },
     {
         "id": 37,
-        "name": "200 mt. Breast Stroke",
+        "name": "100 mt. Back Stroke",
         "age_group": 1,
-        "gender": "male"
+        "gender": "female",
+        "time_trial": 0
     },
     {
         "id": 38,
-        "name": "200 mt. Breast Stroke",
-        "age_group": 1,
-        "gender": "female"
+        "name": "100 mt. Free Style",
+        "age_group": 4,
+        "gender": "male",
+        "time_trial": 0
     },
     {
         "id": 39,
-        "name": "200 mt. Breast Stroke",
-        "age_group": 2,
-        "gender": "male"
+        "name": "100 mt. Free Style",
+        "age_group": 4,
+        "gender": "female",
+        "time_trial": 0
     },
     {
         "id": 40,
-        "name": "200 mt. Breast Stroke",
-        "age_group": 2,
-        "gender": "female"
+        "name": "100 mt. Free Style",
+        "age_group": 3,
+        "gender": "male",
+        "time_trial": 0
     },
     {
         "id": 41,
-        "name": "200 mt. Breast Stroke",
-        "age_group": 0,
-        "gender": "male"
+        "name": "100 mt. Free Style",
+        "age_group": 3,
+        "gender": "female",
+        "time_trial": 0
     },
     {
         "id": 42,
-        "name": "200 mt. Breast Stroke",
-        "age_group": 0,
-        "gender": "female"
+        "name": "100 mt. Free Style",
+        "age_group": 2,
+        "gender": "male",
+        "time_trial": 0
     },
     {
         "id": 43,
         "name": "100 mt. Free Style",
-        "age_group": 1,
-        "gender": "male"
+        "age_group": 2,
+        "gender": "female",
+        "time_trial": 0
     },
     {
         "id": 44,
         "name": "100 mt. Free Style",
         "age_group": 1,
-        "gender": "female"
+        "gender": "male",
+        "time_trial": 0
     },
     {
         "id": 45,
         "name": "100 mt. Free Style",
-        "age_group": 2,
-        "gender": "male"
+        "age_group": 1,
+        "gender": "female",
+        "time_trial": 0
     },
     {
         "id": 46,
-        "name": "100 mt. Free Style",
-        "age_group": 2,
-        "gender": "female"
+        "name": "4x100 mt. Free Style Relay",
+        "age_group": 3,
+        "gender": "male",
+        "time_trial": 1
     },
     {
         "id": 47,
-        "name": "100 mt. Free Style",
+        "name": "4x100 mt. Free Style Relay",
         "age_group": 3,
-        "gender": "male"
+        "gender": "female",
+        "time_trial": 1
     },
     {
         "id": 48,
-        "name": "100 mt. Free Style",
+        "name": "400 mt. Free Style",
         "age_group": 3,
-        "gender": "female"
+        "gender": "male",
+        "time_trial": 1
     },
     {
         "id": 49,
-        "name": "100 mt. Free Style",
-        "age_group": 4,
-        "gender": "male"
+        "name": "400 mt. Free Style",
+        "age_group": 3,
+        "gender": "female",
+        "time_trial": 1
     },
     {
         "id": 50,
-        "name": "100 mt. Free Style",
-        "age_group": 4,
-        "gender": "female"
+        "name": "400 mt. Free Style",
+        "age_group": 2,
+        "gender": "male",
+        "time_trial": 1
     },
     {
         "id": 51,
-        "name": "100 mt. Free Style",
-        "age_group": 0,
-        "gender": "male"
+        "name": "400 mt. Free Style",
+        "age_group": 2,
+        "gender": "female",
+        "time_trial": 1
     },
     {
         "id": 52,
-        "name": "100 mt. Free Style",
-        "age_group": 0,
-        "gender": "female"
+        "name": "50 mt. Back Stroke",
+        "age_group": 4,
+        "gender": "male",
+        "time_trial": 0
     },
     {
         "id": 53,
         "name": "50 mt. Back Stroke",
-        "age_group": 1,
-        "gender": "female"
+        "age_group": 4,
+        "gender": "female",
+        "time_trial": 0
     },
     {
         "id": 54,
         "name": "50 mt. Back Stroke",
-        "age_group": 1,
-        "gender": "male"
+        "age_group": 3,
+        "gender": "male",
+        "time_trial": 0
     },
     {
         "id": 55,
         "name": "50 mt. Back Stroke",
-        "age_group": 2,
-        "gender": "male"
+        "age_group": 3,
+        "gender": "female",
+        "time_trial": 0
     },
     {
         "id": 56,
         "name": "50 mt. Back Stroke",
         "age_group": 2,
-        "gender": "female"
+        "gender": "male",
+        "time_trial": 0
     },
     {
         "id": 57,
         "name": "50 mt. Back Stroke",
-        "age_group": 3,
-        "gender": "male"
+        "age_group": 2,
+        "gender": "female",
+        "time_trial": 0
     },
     {
         "id": 58,
         "name": "50 mt. Back Stroke",
-        "age_group": 3,
-        "gender": "female"
+        "age_group": 1,
+        "gender": "male",
+        "time_trial": 0
     },
     {
         "id": 59,
         "name": "50 mt. Back Stroke",
-        "age_group": 4,
-        "gender": "male"
+        "age_group": 1,
+        "gender": "female",
+        "time_trial": 0
     },
     {
         "id": 60,
-        "name": "50 mt. Back Stroke",
-        "age_group": 4,
-        "gender": "female"
+        "name": "100 mt. Butterfly Stroke",
+        "age_group": 3,
+        "gender": "male",
+        "time_trial": 0
     },
     {
         "id": 61,
-        "name": "50 mt. Back Stroke",
-        "age_group": 0,
-        "gender": "female"
+        "name": "100 mt. Butterfly Stroke",
+        "age_group": 3,
+        "gender": "female",
+        "time_trial": 0
     },
     {
         "id": 62,
-        "name": "50 mt. Back Stroke",
-        "age_group": 0,
-        "gender": "male"
+        "name": "100 mt. Butterfly Stroke",
+        "age_group": 2,
+        "gender": "male",
+        "time_trial": 0
     },
     {
         "id": 63,
-        "name": "50 mt. Breast Stroke",
-        "age_group": 1,
-        "gender": "male"
+        "name": "100 mt. Butterfly Stroke",
+        "age_group": 2,
+        "gender": "female",
+        "time_trial": 0
     },
     {
         "id": 64,
-        "name": "50 mt. Breast Stroke",
+        "name": "100 mt. Butterfly Stroke",
         "age_group": 1,
-        "gender": "female"
+        "gender": "male",
+        "time_trial": 0
     },
     {
         "id": 65,
-        "name": "50 mt. Breast Stroke",
-        "age_group": 2,
-        "gender": "male"
+        "name": "100 mt. Butterfly Stroke",
+        "age_group": 1,
+        "gender": "female",
+        "time_trial": 0
     },
     {
         "id": 66,
-        "name": "50 mt. Breast Stroke",
-        "age_group": 2,
-        "gender": "female"
+        "name": "200 mt. Breast Stroke",
+        "age_group": 3,
+        "gender": "male",
+        "time_trial": 1
     },
     {
         "id": 67,
-        "name": "50 mt. Breast Stroke",
+        "name": "200 mt. Breast Stroke",
         "age_group": 3,
-        "gender": "male"
+        "gender": "female",
+        "time_trial": 1
     },
     {
         "id": 68,
-        "name": "50 mt. Breast Stroke",
-        "age_group": 3,
-        "gender": "female"
+        "name": "200 mt. Breast Stroke",
+        "age_group": 2,
+        "gender": "male",
+        "time_trial": 1
     },
     {
         "id": 69,
-        "name": "50 mt. Breast Stroke",
-        "age_group": 4,
-        "gender": "male"
+        "name": "200 mt. Breast Stroke",
+        "age_group": 2,
+        "gender": "female",
+        "time_trial": 1
     },
     {
         "id": 70,
-        "name": "50 mt. Breast Stroke",
-        "age_group": 4,
-        "gender": "female"
+        "name": "200 mt. Breast Stroke",
+        "age_group": 1,
+        "gender": "male",
+        "time_trial": 1
     },
     {
         "id": 71,
-        "name": "50 mt. Breast Stroke",
-        "age_group": 0,
-        "gender": "male"
+        "name": "200 mt. Breast Stroke",
+        "age_group": 1,
+        "gender": "female",
+        "time_trial": 1
     },
     {
         "id": 72,
-        "name": "50 mt. Breast Stroke",
-        "age_group": 0,
-        "gender": "female"
+        "name": "4x50 mt. Free Style Relay",
+        "age_group": 4,
+        "gender": "male",
+        "time_trial": 1
     },
     {
         "id": 73,
-        "name": "800 mt. Free Style",
-        "age_group": 0,
-        "gender": "male"
+        "name": "4x50 mt. Free Style Relay",
+        "age_group": 4,
+        "gender": "female",
+        "time_trial": 1
     },
     {
         "id": 74,
-        "name": "800 mt. Free Style",
-        "age_group": 0,
-        "gender": "female"
+        "name": "400 mt. Individual Medley",
+        "age_group": 2,
+        "gender": "male",
+        "time_trial": 1
     },
     {
         "id": 75,
-        "name": "800 mt. Free Style",
-        "age_group": 1,
-        "gender": "male"
+        "name": "400 mt. Individual Medley",
+        "age_group": 2,
+        "gender": "female",
+        "time_trial": 1
     },
     {
         "id": 76,
-        "name": "800 mt. Free Style",
+        "name": "400 mt. Individual Medley",
         "age_group": 1,
-        "gender": "female"
+        "gender": "male",
+        "time_trial": 1
     },
     {
         "id": 77,
-        "name": "800 mt. Free Style",
-        "age_group": 2,
-        "gender": "male"
+        "name": "400 mt. Individual Medley",
+        "age_group": 1,
+        "gender": "female",
+        "time_trial": 1
     },
     {
         "id": 78,
-        "name": "800 mt. Free Style",
-        "age_group": 2,
-        "gender": "female"
+        "name": "50 mt. Free Style",
+        "age_group": 4,
+        "gender": "male",
+        "time_trial": 0
     },
     {
         "id": 79,
-        "name": "100 mt. Butterfly Stroke",
-        "age_group": 1,
-        "gender": "male"
+        "name": "50 mt. Free Style",
+        "age_group": 4,
+        "gender": "female",
+        "time_trial": 0
     },
     {
         "id": 80,
-        "name": "100 mt. Butterfly Stroke",
-        "age_group": 1,
-        "gender": "female"
+        "name": "50 mt. Free Style",
+        "age_group": 3,
+        "gender": "male",
+        "time_trial": 0
     },
     {
         "id": 81,
-        "name": "100 mt. Butterfly Stroke",
-        "age_group": 2,
-        "gender": "male"
+        "name": "50 mt. Free Style",
+        "age_group": 3,
+        "gender": "female",
+        "time_trial": 0
     },
     {
         "id": 82,
-        "name": "100 mt. Butterfly Stroke",
+        "name": "50 mt. Free Style",
         "age_group": 2,
-        "gender": "female"
+        "gender": "male",
+        "time_trial": 0
     },
     {
         "id": 83,
-        "name": "100 mt. Butterfly Stroke",
-        "age_group": 3,
-        "gender": "male"
+        "name": "50 mt. Free Style",
+        "age_group": 2,
+        "gender": "female",
+        "time_trial": 0
     },
     {
         "id": 84,
-        "name": "100 mt. Butterfly Stroke",
-        "age_group": 3,
-        "gender": "female"
+        "name": "50 mt. Free Style",
+        "age_group": 1,
+        "gender": "male",
+        "time_trial": 0
     },
     {
         "id": 85,
-        "name": "100 mt. Butterfly Stroke",
-        "age_group": 0,
-        "gender": "male"
+        "name": "50 mt. Free Style",
+        "age_group": 1,
+        "gender": "female",
+        "time_trial": 0
     },
     {
         "id": 86,
-        "name": "100 mt. Butterfly Stroke",
-        "age_group": 0,
-        "gender": "female"
+        "name": "200 mt. Butterfly Stroke",
+        "age_group": 3,
+        "gender": "male",
+        "time_trial": 1
     },
     {
         "id": 87,
-        "name": "50 mt. Free Style",
-        "age_group": 1,
-        "gender": "female"
+        "name": "200 mt. Butterfly Stroke",
+        "age_group": 3,
+        "gender": "female",
+        "time_trial": 1
     },
     {
         "id": 88,
-        "name": "50 mt. Free Style",
-        "age_group": 1,
-        "gender": "male"
+        "name": "200 mt. Butterfly Stroke",
+        "age_group": 2,
+        "gender": "male",
+        "time_trial": 1
     },
     {
         "id": 89,
-        "name": "50 mt. Free Style",
+        "name": "200 mt. Butterfly Stroke",
         "age_group": 2,
-        "gender": "female"
+        "gender": "female",
+        "time_trial": 1
     },
     {
         "id": 90,
-        "name": "50 mt. Free Style",
-        "age_group": 2,
-        "gender": "male"
+        "name": "200 mt. Butterfly Stroke",
+        "age_group": 1,
+        "gender": "male",
+        "time_trial": 1
     },
     {
         "id": 91,
-        "name": "50 mt. Free Style",
-        "age_group": 3,
-        "gender": "male"
+        "name": "200 mt. Butterfly Stroke",
+        "age_group": 1,
+        "gender": "female",
+        "time_trial": 1
     },
     {
         "id": 92,
-        "name": "50 mt. Free Style",
+        "name": "200 mt. Back Stroke",
         "age_group": 3,
-        "gender": "female"
+        "gender": "male",
+        "time_trial": 1
     },
     {
         "id": 93,
-        "name": "50 mt. Free Style",
-        "age_group": 4,
-        "gender": "male"
+        "name": "200 mt. Back Stroke",
+        "age_group": 3,
+        "gender": "female",
+        "time_trial": 1
     },
     {
         "id": 94,
-        "name": "50 mt. Free Style",
-        "age_group": 4,
-        "gender": "female"
+        "name": "200 mt. Back Stroke",
+        "age_group": 2,
+        "gender": "male",
+        "time_trial": 1
     },
     {
         "id": 95,
-        "name": "50 mt. Free Style",
-        "age_group": 0,
-        "gender": "female"
+        "name": "200 mt. Back Stroke",
+        "age_group": 2,
+        "gender": "female",
+        "time_trial": 1
     },
     {
         "id": 96,
-        "name": "50 mt. Free Style",
-        "age_group": 0,
-        "gender": "male"
+        "name": "200 mt. Back Stroke",
+        "age_group": 1,
+        "gender": "male",
+        "time_trial": 1
     },
     {
         "id": 97,
-        "name": "100 mt. Breast Stroke",
+        "name": "200 mt. Back Stroke",
         "age_group": 1,
-        "gender": "male"
+        "gender": "female",
+        "time_trial": 1
     },
     {
         "id": 98,
-        "name": "100 mt. Breast Stroke",
-        "age_group": 1,
-        "gender": "female"
+        "name": "4x100 mt. Free Style Relay",
+        "age_group": 2,
+        "gender": "male",
+        "time_trial": 1
     },
     {
         "id": 99,
-        "name": "100 mt. Breast Stroke",
+        "name": "4x100 mt. Free Style Relay",
         "age_group": 2,
-        "gender": "male"
+        "gender": "female",
+        "time_trial": 1
     },
     {
         "id": 100,
-        "name": "100 mt. Breast Stroke",
-        "age_group": 2,
-        "gender": "female"
+        "name": "4x100 mt. Free Style Relay",
+        "age_group": 1,
+        "gender": "male",
+        "time_trial": 1
     },
     {
         "id": 101,
-        "name": "100 mt. Breast Stroke",
-        "age_group": 3,
-        "gender": "male"
+        "name": "4x100 mt. Free Style Relay",
+        "age_group": 1,
+        "gender": "female",
+        "time_trial": 1
     },
     {
         "id": 102,
-        "name": "100 mt. Breast Stroke",
-        "age_group": 3,
-        "gender": "female"
+        "name": "800 mt. Free Style",
+        "age_group": 2,
+        "gender": "male",
+        "time_trial": 1
     },
     {
         "id": 103,
-        "name": "100 mt. Breast Stroke",
-        "age_group": 0,
-        "gender": "male"
+        "name": "400 mt. Free Style",
+        "age_group": 1,
+        "gender": "male",
+        "time_trial": 1
     },
     {
         "id": 104,
-        "name": "100 mt. Breast Stroke",
-        "age_group": 0,
-        "gender": "female"
+        "name": "400 mt. Free Style",
+        "age_group": 1,
+        "gender": "female",
+        "time_trial": 1
     },
     {
         "id": 105,
-        "name": "400 mt. I.M.",
-        "age_group": 1,
-        "gender": "male"
+        "name": "200 mt. Individual Medley",
+        "age_group": 4,
+        "gender": "male",
+        "time_trial": 1
     },
     {
         "id": 106,
-        "name": "400 mt. I.M.",
-        "age_group": 1,
-        "gender": "female"
+        "name": "200 mt. Individual Medley",
+        "age_group": 4,
+        "gender": "female",
+        "time_trial": 1
     },
     {
         "id": 107,
-        "name": "400 mt. I.M.",
-        "age_group": 2,
-        "gender": "male"
+        "name": "200 mt. Individual Medley",
+        "age_group": 3,
+        "gender": "male",
+        "time_trial": 1
     },
     {
         "id": 108,
-        "name": "400 mt. I.M.",
-        "age_group": 2,
-        "gender": "female"
+        "name": "200 mt. Individual Medley",
+        "age_group": 3,
+        "gender": "female",
+        "time_trial": 1
     },
     {
         "id": 109,
-        "name": "400 mt. I.M.",
-        "age_group": 0,
-        "gender": "male"
+        "name": "200 mt. Individual Medley",
+        "age_group": 2,
+        "gender": "male",
+        "time_trial": 1
     },
     {
         "id": 110,
-        "name": "400 mt. I.M.",
-        "age_group": 0,
-        "gender": "female"
+        "name": "200 mt. Individual Medley",
+        "age_group": 2,
+        "gender": "female",
+        "time_trial": 1
     },
     {
         "id": 111,
-        "name": "100 mt. Back Stroke",
+        "name": "200 mt. Individual Medley",
         "age_group": 1,
-        "gender": "male"
+        "gender": "male",
+        "time_trial": 1
     },
     {
         "id": 112,
-        "name": "100 mt. Back Stroke",
+        "name": "200 mt. Individual Medley",
         "age_group": 1,
-        "gender": "female"
+        "gender": "female",
+        "time_trial": 1
     },
     {
         "id": 113,
-        "name": "100 mt. Back Stroke",
-        "age_group": 2,
-        "gender": "male"
+        "name": "4x50 mt. Medley Relay",
+        "age_group": 4,
+        "gender": "male",
+        "time_trial": 1
     },
     {
         "id": 114,
-        "name": "100 mt. Back Stroke",
-        "age_group": 2,
-        "gender": "female"
+        "name": "4x50 mt. Medley Relay",
+        "age_group": 4,
+        "gender": "female",
+        "time_trial": 1
     },
     {
         "id": 115,
-        "name": "100 mt. Back Stroke",
+        "name": "4x100 mt. Medley Relay",
         "age_group": 3,
-        "gender": "male"
+        "gender": "male",
+        "time_trial": 1
     },
     {
         "id": 116,
-        "name": "100 mt. Back Stroke",
+        "name": "4x100 mt. Medley Relay",
         "age_group": 3,
-        "gender": "female"
+        "gender": "female",
+        "time_trial": 1
     },
     {
         "id": 117,
-        "name": "100 mt. Back Stroke",
-        "age_group": 0,
-        "gender": "male"
+        "name": "4x100 mt. Medley Relay",
+        "age_group": 2,
+        "gender": "male",
+        "time_trial": 1
     },
     {
         "id": 118,
-        "name": "100 mt. Back Stroke",
-        "age_group": 0,
-        "gender": "female"
+        "name": "4x100 mt. Medley Relay",
+        "age_group": 2,
+        "gender": "female",
+        "time_trial": 1
     },
     {
         "id": 119,
-        "name": "200 mt. Free Style",
+        "name": "4x100 mt. Medley Relay",
         "age_group": 1,
-        "gender": "male"
+        "gender": "male",
+        "time_trial": 1
     },
     {
         "id": 120,
-        "name": "200 mt. Free Style",
+        "name": "4x100 mt. Medley Relay",
         "age_group": 1,
-        "gender": "female"
-    },
-    {
-        "id": 121,
-        "name": "200 mt. Free Style",
-        "age_group": 2,
-        "gender": "male"
-    },
-    {
-        "id": 122,
-        "name": "200 mt. Free Style",
-        "age_group": 2,
-        "gender": "female"
-    },
-    {
-        "id": 123,
-        "name": "200 mt. Free Style",
-        "age_group": 3,
-        "gender": "male"
-    },
-    {
-        "id": 124,
-        "name": "200 mt. Free Style",
-        "age_group": 3,
-        "gender": "female"
-    },
-    {
-        "id": 125,
-        "name": "200 mt. Free Style",
-        "age_group": 0,
-        "gender": "male"
-    },
-    {
-        "id": 126,
-        "name": "200 mt. Free Style",
-        "age_group": 0,
-        "gender": "female"
-    },
-    {
-        "id": 127,
-        "name": "50 mt. Butterfly Stroke",
-        "age_group": 1,
-        "gender": "female"
-    },
-    {
-        "id": 128,
-        "name": "50 mt. Butterfly Stroke",
-        "age_group": 1,
-        "gender": "male"
-    },
-    {
-        "id": 129,
-        "name": "50 mt. Butterfly Stroke",
-        "age_group": 2,
-        "gender": "female"
-    },
-    {
-        "id": 130,
-        "name": "50 mt. Butterfly Stroke",
-        "age_group": 2,
-        "gender": "male"
-    },
-    {
-        "id": 131,
-        "name": "50 mt. Butterfly Stroke",
-        "age_group": 3,
-        "gender": "male"
-    },
-    {
-        "id": 132,
-        "name": "50 mt. Butterfly Stroke",
-        "age_group": 3,
-        "gender": "female"
-    },
-    {
-        "id": 133,
-        "name": "50 mt. Butterfly Stroke",
-        "age_group": 4,
-        "gender": "male"
-    },
-    {
-        "id": 134,
-        "name": "50 mt. Butterfly Stroke",
-        "age_group": 4,
-        "gender": "female"
-    },
-    {
-        "id": 135,
-        "name": "50 mt. Butterfly Stroke",
-        "age_group": 0,
-        "gender": "female"
-    },
-    {
-        "id": 136,
-        "name": "50 mt. Butterfly Stroke",
-        "age_group": 0,
-        "gender": "male"
+        "gender": "female",
+        "time_trial": 1
     }
 ]

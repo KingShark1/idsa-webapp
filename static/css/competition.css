@@ -171,35 +171,55 @@ tr.dragged-over {
     }
 }
 
+#daySelectorContainer {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.day-button {
+    margin: 0 10px;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.day-button.active {
+    background-color: #007bff;
+    color: #fff;
+}
+
+.swimmer-dropdown {
+    max-height: 200px;
+    overflow-y: auto;
+}
+
 /* Print Styles */
 @media print {
     body * {
         visibility: hidden;
     }
-    #eventsContainer, #eventsContainer * {
+    #eventsContainer, #eventsContainer *, #finalsContainer, #finalsContainer * {
         visibility: visible;
     }
-    #eventsContainer {
+    #eventsContainer, #finalsContainer {
         position: absolute;
         left: 0;
         top: 0;
         width: 100%;
         height: auto;
-        
     }
-    #printButton, .edit-button {
+    #printButton, #printFinalsButton, .edit-button {
         display: none;
     }
-    .event-container {
+    .event-container, .finals-container {
         page-break-inside: avoid; /* Avoid page break inside this container */
         margin-bottom: 10px; /* Space between events */
-        
     }
     table {
         border-collapse: collapse;
         width: 100%;
         border: 1px solid #000; /* Add border to each table */
-        margin-bottom: 5px; /* Reduce space between tables */
+        margin-bottom: 20px; /* Reduce space between tables */
         font-size: 10px; /* Reduce font size to fit more content */
     }
     th, td {
@@ -224,10 +244,32 @@ tr.dragged-over {
         vertical-align: middle; /* Center text vertically */
         border: 1px solid #000; /* Ensure border between every row and column */
     }
-    .page-break {
+    /* .page-break {
         page-break-after: always;
-    }
+    } */
     .page-break-avoid {
         page-break-inside: avoid;
+    }
+    .event-wrapper {
+        page-break-inside: avoid;
+        margin-bottom: 15px;
+    }
+    
+    /* Ensure no more than 3 tables per page */
+    table {
+        page-break-inside: avoid;
+    }
+
+    /* After every 3rd table, force a page break */
+    table:nth-of-type(3n) {
+        page-break-after: always; /* Page break after every 3rd table */
+    }
+
+    /* Ensure at least 2 tables are printed per page */
+    table:nth-of-type(2n+1) {
+        page-break-before: auto; /* Ensure at least 2 tables before a page break */
+    }
+    .add-swimmer-button {
+        display: none;
     }
 }

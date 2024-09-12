@@ -2,10 +2,24 @@
 
 {% block content %}
 <link rel="stylesheet" href="/static/css/competition.css">
-<button id="printButton">Print Table</button>
+<!-- Print Normal Events Button -->
+<button id="printNormalEventsButton">Print Normal Events</button>
+<div id="daySelectorContainer"></div>
+    <div id="daySelector"></div>
+</div>
+<div id="eventsContainer">
+    <!-- Normal events will be inside this container -->
+</div>
 
-<div id="eventsContainer"></div>
+
+<h1>Final Events</h1>
+<!-- Print Final Events Button -->
+<button id="printFinalEventsButton">Print Final Events</button>
+
+<div id="finalsContainer">
+    <!-- Final Events will be loaded here -->
+</div>
 
 <script src="/static/js/competition.js"></script>
-
+<script src="/static/js/finals.js"></script>
 {% endblock %}
