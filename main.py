@@ -12,7 +12,7 @@ from sqlalchemy.ext.declarative import declarative_base
 from pathlib import Path
 import json
 
-SQLALCHEMY_DATABASE_URL = "postgresql://postgres:RCzLXgXLqwEBUJlvOkckVBeAwzAfqfIF@junction.proxy.rlwy.net:28503/railway"
+SQLALCHEMY_DATABASE_URL = "sqlite:///./swimming_competition.db"
 
 engine = create_engine(SQLALCHEMY_DATABASE_URL)
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
