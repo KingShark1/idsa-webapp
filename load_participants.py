@@ -8,7 +8,7 @@ from collections import defaultdict
 from datetime import datetime
 from tqdm import tqdm
 # Load the Excel file
-file_path = 'StudentAttendance_2024 (1) (1)-2.xlsx'  # Update with your actual path
+file_path = 'CBSE entry data clean list .xlsx'  # Update with your actual path
 df = pd.read_excel(file_path)
 
 # Start a session with the database
