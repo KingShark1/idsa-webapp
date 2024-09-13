@@ -27,7 +27,8 @@ main {
     margin-top: 20px;
 }
 
-.left, .right {
+.left,
+.right {
     width: 48%;
 }
 
@@ -51,7 +52,8 @@ table {
     margin-bottom: 20px;
 }
 
-th, td {
+th,
+td {
     border: 1px solid #ddd;
     padding: 8px;
     text-align: center;
@@ -61,7 +63,8 @@ th {
     background-color: #f2f2f2;
 }
 
-h2, h3 {
+h2,
+h3 {
     margin-top: 0;
 }
 
@@ -85,7 +88,6 @@ button:hover {
     width: 5%; /* Adjust this percentage as needed for the position column */
 }
 
-
 .left table th:last-child,
 .left table td:last-child {
     width: 20%; /* Adjust this percentage as needed for the position column */
@@ -102,7 +104,6 @@ button:hover {
     width: 10%; /* Adjust this percentage as needed for the position column */
 }
 
-
 .right table th:last-child,
 .right table td:last-child {
     width: 20%; /* Adjust this percentage as needed for the position column */
@@ -111,4 +112,102 @@ button:hover {
 .right table th:not(:first-child),
 .right table td:not(:first-child) {
     width: 20%; /* Adjust this percentage to fit the table width, for remaining columns */
+}
+
+/* Print styles */
+@media print {
+    body * {
+        visibility: hidden;
+    }
+    .left,
+    .left * {
+        visibility: visible;
+    }
+    .left {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        padding: 0;
+        margin: 0;
+    }
+    header,
+    .right,
+    button {
+        display: none;
+    }
+
+    /* Adjust page margins */
+    @page {
+        size: auto;
+        margin: 10mm 5mm 10mm 5mm;
+    }
+
+    /* Table styles for print */
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 9px;
+        page-break-inside: avoid;
+    }
+
+    th,
+    td {
+        padding: 2px 4px;
+        border: 1px solid #000;
+        text-align: left;
+    }
+
+    th {
+        background-color: #f2f2f2;
+        font-weight: bold;
+    }
+
+    /* Adjust column widths */
+    table th:first-child,
+    table td:first-child {
+        width: 5%;
+    }
+    table th:nth-child(2),
+    table td:nth-child(2) {
+        width: 30%;
+    }
+    table th:nth-child(3),
+    table td:nth-child(3) {
+        width: 15%;
+    }
+    table th:nth-child(4),
+    table td:nth-child(4) {
+        width: 25%;
+    }
+    table th:last-child,
+    table td:last-child {
+        width: 25%;
+    }
+
+    /* Ensure headers print on every page */
+    thead {
+        display: table-header-group;
+    }
+
+    /* Group title with its table */
+    .event-group {
+        page-break-inside: avoid;
+        break-inside: avoid;
+        margin-bottom: 15px;
+    }
+
+    /* Reduce white space */
+    h2,
+    h3 {
+        margin: 10px 0 5px 0;
+        font-size: 12px;
+        page-break-after: avoid;
+    }
+
+    /* Ensure title stays with its table */
+    h2 + table,
+    h3 + table {
+        page-break-before: avoid;
+    }
 }

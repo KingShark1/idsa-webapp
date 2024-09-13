@@ -1,6 +1,6 @@
 /* General styles */
 body {
-    font-family: 'Arial', sans-serif;
+    font-family: "Arial", sans-serif;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -14,7 +14,8 @@ header {
     text-align: center;
 }
 
-h2, h3 {
+h2,
+h3 {
     text-align: left;
     margin-top: 0;
 }
@@ -28,7 +29,7 @@ nav ul {
     margin: 0;
 }
 
-.printButton{
+.printButton {
     align-items: center;
 }
 
@@ -91,10 +92,10 @@ table {
     border-collapse: collapse;
     margin-bottom: 20px;
     font-size: 12px;
-
 }
 
-th, td {
+th,
+td {
     border: 1px solid #ccc;
     padding: 8px;
     text-align: center;
@@ -126,7 +127,9 @@ thead th {
     width: 100px;
 }
 
-.column-mm, .column-ss, .column-ms {
+.column-mm,
+.column-ss,
+.column-ms {
     width: 50px;
 }
 
@@ -143,7 +146,7 @@ input[type="text"]:disabled {
     background-color: #e9ecef;
 }
 
-tr{
+tr {
     height: 5px;
 }
 /* Drag and drop styles */
@@ -157,7 +160,8 @@ tr.dragged-over {
 
 /* Responsive styles */
 @media (max-width: 768px) {
-    th, td {
+    th,
+    td {
         padding: 6px;
     }
 
@@ -195,23 +199,40 @@ tr.dragged-over {
 
 /* Print Styles */
 @media print {
+    @page{
+        size: auto;
+        margin: 5mm 5mm 5mm 5mm;
+    }
+    @page{
+        @bottom-center{
+            content: : counter(page);
+            height: 10mm;
+        }
+    }
     body * {
         visibility: hidden;
     }
-    #eventsContainer, #eventsContainer *, #finalsContainer, #finalsContainer * {
+    #eventsContainer,
+    #eventsContainer *,
+    #finalsContainer,
+    #finalsContainer * {
         visibility: visible;
     }
-    #eventsContainer, #finalsContainer {
+    #eventsContainer,
+    #finalsContainer {
         position: absolute;
         left: 0;
         top: 0;
         width: 100%;
         height: auto;
     }
-    #printButton, #printFinalsButton, .edit-button {
+    #printButton,
+    #printFinalsButton,
+    .edit-button {
         display: none;
     }
-    .event-container, .finals-container {
+    .event-container,
+    .finals-container {
         page-break-inside: avoid; /* Avoid page break inside this container */
         margin-bottom: 10px; /* Space between events */
     }
@@ -222,7 +243,8 @@ tr.dragged-over {
         margin-bottom: 20px; /* Reduce space between tables */
         font-size: 10px; /* Reduce font size to fit more content */
     }
-    th, td {
+    th,
+    td {
         padding: 2px; /* Reduce padding */
         line-height: 1; /* Reduce line height */
         border: 1px solid #000; /* Ensure border between every row and column */
@@ -236,7 +258,9 @@ tr.dragged-over {
     tr.event-title-row th[colspan] {
         border-bottom: 1px solid #000;
     }
-    tr, th, td {
+    tr,
+    th,
+    td {
         height: auto; /* Let height adjust automatically */
         border: 1px solid #000; /* Ensure border between every row and column */
     }
@@ -254,7 +278,7 @@ tr.dragged-over {
         page-break-inside: avoid;
         margin-bottom: 15px;
     }
-    
+
     /* Ensure no more than 3 tables per page */
     table {
         page-break-inside: avoid;
@@ -266,7 +290,7 @@ tr.dragged-over {
     }
 
     /* Ensure at least 2 tables are printed per page */
-    table:nth-of-type(2n+1) {
+    table:nth-of-type(2n + 1) {
         page-break-before: auto; /* Ensure at least 2 tables before a page break */
     }
     .add-swimmer-button {
