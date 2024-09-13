@@ -54,11 +54,16 @@ document.addEventListener("DOMContentLoaded", () => {
         const ss = row.querySelector(".ss").value;
         const ms = row.querySelector(".ms").value;
         const time = `${mm}:${ss}:${ms}`;
-        updates.push({ swimmer_event_id: participantId, time: time });
+        updates.push({
+          event_id: eventId,
+          swimmer_event_id: participantId,
+          time: time,
+        }); // Update the object structure
       }
     });
 
-    fetch("/update_times", {
+    fetch("/update_final_times", {
+      // Update the endpoint URL
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -84,7 +89,6 @@ document.addEventListener("DOMContentLoaded", () => {
       })
       .catch((error) => console.error("Error updating final times:", error));
   }
-
   function createFinalsContainer() {
     // We assume "finalsContainer" already exists
     const finalsContainer = document.getElementById("finalsContainer");

@@ -1,32 +1,27 @@
-import sys
-from sqlalchemy import create_engine, text
-from sqlalchemy.exc import SQLAlchemyError
+from fastapi import FastAPI, Depends
+from sqlalchemy.orm import Session
+from models import RelayEvent, Event
 
-def test_connection(connection_string):
+from sqlalchemy import create_engine
+from sqlalchemy.orm import Session, sessionmaker
+from sqlalchemy.ext.declarative import declarative_base
+SQLALCHEMY_DATABASE_URL = "sqlite:///./swimming_competition.db"
+engine = create_engine(SQLALCHEMY_DATABASE_URL, pool_size=20, max_overflow=0)
+SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
+
+def update_relay_events():
+    db = SessionLocal()
     try:
-        # Create the SQLAlchemy engine
-        engine = create_engine(connection_string)
-
-        # Try to connect and execute a simple query
-        with engine.connect() as connection:
-            result = connection.execute(text("SELECT 1"))
-            print("Connection successful!")
-            print("Test query result:", result.scalar())
-
-        # If we get here, the connection was successful
-        return True
-
-    except SQLAlchemyError as e:
-        print("Error connecting to the database:")
-        print(str(e))
-        return False
+        relay_events = db.query(RelayEvent).all()
+        for relay_event in relay_events:
+            event = db.query(Event).get(relay_event.event_id)
+            relay_event.event = event
+        db.commit()
+    except Exception as e:
+        db.rollback()
+        print(f"Error: {e}")
+    finally:
+        db.close()
 
 if __name__ == "__main__":
-    connection_string = 'postgresql://postgres:ErmWsGnksaBwaCWStClxMdAhUTAFILmP@autorack.proxy.rlwy.net:47961/railway'
-
-    if test_connection(connection_string):
-        print("Database connection test passed.")
-        sys.exit(0)
-    else:
-        print("Database connection test failed.")
-        sys.exit(1)
+    update_relay_events()
