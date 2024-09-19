@@ -66,7 +66,7 @@ async def add_swimmer(
 ):
     try:
         dob_date = datetime.strptime(swimmer_data.dob, "%Y-%m-%d")
-        
+
         # Fetch the club using the club ID from swimmer_data
         club = db.query(Club).filter(Club.name == swimmer_data.club).first()
         if not club:
@@ -90,7 +90,7 @@ async def add_swimmer(
         )
         db.add(new_swimmer)
         db.commit()
-        
+
         for eid in swimmer_data.event_id:
             # Fetch the event to check if it's a relay
             event = db.query(Event).filter(Event.id == eid).first()
@@ -159,7 +159,10 @@ def get_swimmers(
     event: Optional[str] = Query(None),
     db: Session = Depends(get_db)
 ):
-    query = db.query(Swimmer).options(joinedload(Swimmer.events).joinedload(SwimmerEvent.event))
+    query = db.query(Swimmer).options(
+        joinedload(Swimmer.events).joinedload(SwimmerEvent.event),
+        joinedload(Swimmer.relay_events).joinedload(RelayEvent.event)
+    )
 
     if name:
         query = query.filter(Swimmer.name.ilike(f"%{name}%"))
@@ -195,7 +198,7 @@ async def update_swimmer(swimmer_id: int, update_data: SwimmerUpdateModel, db: S
         await add_swimmer(new_swimmer_data, db)
 
         return {"message": "Swimmer updated with new gender/age group"}
- 
+
 
 @router.delete("/swimmers/{swimmer_id}", response_class=JSONResponse)
 async def delete_swimmer(swimmer_id: int, db: Session = Depends(get_db)):
@@ -250,11 +253,15 @@ async def get_swimmer_events(swimmer_id: int, db: Session = Depends(get_db)):
     swimmer = db.query(Swimmer).filter(Swimmer.id == swimmer_id).first()
     if not swimmer:
         raise HTTPException(status_code=404, detail="Swimmer not found")
-    
+
     # Fetch associated events
     swimmer_events = db.query(SwimmerEvent).filter(SwimmerEvent.swimmer_id == swimmer_id).all()
     event_names = [se.event.name for se in swimmer_events]
 
+    # relay_swimmer_event = db.query(RelayEvent).filter(RelayEvent.swimmer_id == swimmer_id).all()
+    # relay_event_names = [se.event.name for se in relay_swimmer_event]
+    relay_event_names = []
+    logging.info(relay_event_names)
     # Return swimmer details along with the event names
     return {
         "id": swimmer.id,
@@ -263,17 +270,18 @@ async def get_swimmer_events(swimmer_id: int, db: Session = Depends(get_db)):
         "age_group": swimmer.age_group,
         "gender": swimmer.gender,
         "club": swimmer.club,
-        "events": event_names
+        "events": event_names,
+        "relay_events": relay_event_names
     }
 
 @router.delete("/swimmers/{swimmer_id}/events/{event_id}")
 async def delete_swimmer_event(swimmer_id: int, event_id: int, db: Session = Depends(get_db)):
     # Fetch the swimmer event
-    swimmer_event = db.query(SwimmerEvent).filter(SwimmerEvent.id == event_id).first()    
+    swimmer_event = db.query(SwimmerEvent).filter(SwimmerEvent.id == event_id).first()
     # Check if the swimmer event exists
     if not swimmer_event:
         raise HTTPException(status_code=404, detail="Event not found for swimmer")
-    event_no = swimmer_event.event_id 
+    event_no = swimmer_event.event_id
     # Delete the swimmer event
     db.delete(swimmer_event)
     db.commit()
@@ -282,6 +290,16 @@ async def delete_swimmer_event(swimmer_id: int, event_id: int, db: Session = Dep
     await recalculate_heats_lanes(event_no, db)
 
     return {"message": "Event deleted successfully"}
+
+@router.delete("/swimmers/{swimmer_id}/relay-events/{relay_event_id}")
+def delete_relay_event(swimmer_id: int, relay_event_id: int, db: Session = Depends(get_db)):
+    relay_event = db.query(RelayEvent).get(relay_event_id)
+    if relay_event:
+        db.delete(relay_event)
+        db.commit()
+        return {"message": "Relay event deleted successfully"}
+    else:
+        return {"message": "Relay event not found"}, 404
 
 @router.get("/competition")
 async def competition(
@@ -317,12 +335,12 @@ async def get_eligible_swimmers(event_id: int, db: Session = Depends(get_db)):
     event = db.query(Event).filter(Event.id == event_id).first()
     if not event:
         raise HTTPException(status_code=404, detail="Event not found")
- 
+
     # Fetch swimmers eligible for the event based on age group and gender
     eligible_swimmers = db.query(Swimmer).filter(
         Swimmer.age_group == event.age_group,
         Swimmer.gender == event.gender,
-        
+
     ).all()
     print(eligible_swimmers)
     # Return swimmer data as JSON
@@ -396,9 +414,9 @@ async def get_top_8_participants(event_id: int, db: Session = Depends(get_db)):
                         .order_by(SwimmerEvent.time.asc())  # Sort by time in ascending order (best to worst)
                         .limit(8)  # Limit to the top 8 participants
                         .all())
-        
+
         return participants
-    
+
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
 
@@ -447,6 +465,55 @@ async def update_times(request: List[Union[UpdateSwimmerTimeRequest, UpdateRelay
         logging.error(f"Error updating times: {str(e)}")
         raise HTTPException(status_code=500, detail=str(e))
 
+@router.post("/update_final_times")
+async def update_final_times(request: List[UpdateFinalTimeRequest], db: Session = Depends(get_db)):
+    try:
+        for update in request:
+            logging.info(update)
+
+            # Check if the event is a final event
+            swimmer_event = db.query(SwimmerEvent).filter(SwimmerEvent.id == update.swimmer_event_id).first()
+            swimmer = swimmer_event.swimmer
+            event = db.query(Event).filter(Event.id == update.event_id).first()
+            if event and event.time_trial is False:
+                # Update final time for a swimmer event
+                final_event = db.query(FinalEvent).filter(FinalEvent.event_id == update.event_id, FinalEvent.swimmer_id == swimmer.id).first()
+                if final_event:
+                    if update.time == "::":
+                        final_event.time = None
+                    else:
+                        final_event.time = update.time
+                    logging.info(final_event.swimmer)
+                    logging.info(f"Updated FinalEvent: {final_event.time}, Swimmer: {final_event.swimmer.name}, Event ID: {final_event.event_id}")
+                else:
+                    logging.info("Final event not found, creating new one.")
+                    # Create a new FinalEvent record if it doesn't exist
+                    logging.info(update.swimmer_event_id)
+                    swimmer_event = db.query(SwimmerEvent).get(update.swimmer_event_id)
+                    swimmer = swimmer_event.swimmer
+                    logging.info(swimmer)
+                    event = db.query(Event).get(update.event_id)
+                    if update.time == "::":
+                        time = None
+                    else:
+                        time = update.time
+                    final_event = FinalEvent(
+                        event_id=event.id,
+                        swimmer_id=swimmer.id,
+                        time=time,
+                        swimmer=swimmer,
+                        event=event
+                    )
+                    db.add(final_event)
+                    logging.info(f"Created FinalEvent: {final_event.time}, Swimmer: {final_event.swimmer.name}, Event ID: {final_event.event_id}")
+
+        db.commit()
+        return JSONResponse(content={"message": "Final times updated successfully"})
+    except Exception as e:
+        logging.info(traceback.print_exc())
+        logging.error(f"Error updating final times: {str(e)}")
+        raise HTTPException(status_code=500, detail=str(e))
+
 """
 @router.post("/relay_submission_event")
 async def relay_submission_event(request: List[RelaySubmission], db: Session = Depends(get_db)):
@@ -469,7 +536,7 @@ async def recalculate_heats_lanes(event_id: int, db: Session = Depends(get_db)):
     if participants:
         # Sort participants by time
         participants.sort(key=lambda x: (x.time is not None, x.time))
-        
+
         # Recalculate heats and lanes
         lane_id = 0
         heat_id = 1
@@ -496,22 +563,23 @@ async def get_event_results(request: Request, db: Session = Depends(get_db)):
     for event in events:
         if "Relay" in event.name:
             participants = db.query(RelayEvent).filter(RelayEvent.event_id == event.id).all()
-            participants.sort(key=lambda se: (convert_time_to_total_ms(se.time), se.time is None))
+            participants.sort(key=lambda se: (convert_time_to_total_ms(se, se.time), se.time is None))
             relay_participants = []
             for i, se in enumerate(participants):
                 if i <= config["min_participants_for_relay_points"]:
                     se.medal = str(i+1)
-                
-            
+
+
             if len(participants) > 2:
-                for se in participants:
-                    club = se.club
-                
-                    if se.time is not None and f"{se.medal}" in config["relay_medal_points"]:
-                        # Find the Club
-                        # Add point to the club
-                        club.total_points += config["relay_medal_points"][f"{se.medal}"]
-                        db.commit()
+                if participants[2].time != "99:99:99" or participant[2].time != "88:88:88":
+                    for se in participants:
+                        club = se.club
+
+                        if se.time is not None and f"{se.medal}" in config["relay_medal_points"]:
+                            # Find the Club
+                            # Add point to the club
+                            club.total_points += config["relay_medal_points"][f"{se.medal}"]
+                            db.commit()
             for participant in participants:
                 club_id = participant.club_id
                 swimmer_names = [swimmer.name for swimmer in participant.swimmers]
@@ -522,7 +590,7 @@ async def get_event_results(request: Request, db: Session = Depends(get_db)):
                     "swimmers": swimmer_names,
                     "time": participant.time
                 })
-                
+
             event_results.append({
                 "id": event.id,
                 "name": event.name,
@@ -531,26 +599,35 @@ async def get_event_results(request: Request, db: Session = Depends(get_db)):
                 "relay": True,
                 "participants": relay_participants
             })
-            
-        else:    
-            participants = db.query(SwimmerEvent).filter(SwimmerEvent.event_id == event.id).all()
-            # Sort participants by total milliseconds, keeping those without time at the bottom
-            # participants = [se for se in participants if se.time is not None]
-            participants.sort(key=lambda se: (convert_time_to_total_ms(se.time), se.time is None))
-            
+
+        else:
+            if event.time_trial:
+                participants = db.query(SwimmerEvent).filter(SwimmerEvent.event_id == event.id).all()
+                participants.sort(key=lambda se: (convert_time_to_total_ms(se, se.time), se.time is None))
+            else:
+
+                participants = db.query(FinalEvent).filter(FinalEvent.event_id == event.id).all()
+                # Sort participants by total milliseconds, keeping those without time at the bottom
+                # participants = [se for se in participants if se.time is not None]
+
+                participants.sort(key=lambda se: (convert_time_to_total_ms(se, se.time), se.time is None))
+
+
             # Assign medals to the top n participants, configured in the config.json
             for i, se in enumerate(participants):
                 if i <= config["min_participants_for_points"]:
                     se.medal = str(i+1)  # Gold
-            
-            if len(participants) > 2: 
-                for se in participants:
-                    # Assign points based on medal
-                    if se.time is not None and f"{se.medal}" in config["medal_points"]:
-                        swimmer_points[(se.swimmer.age_group, se.swimmer.gender)][se.swimmer_id] += config["medal_points"][f"{se.medal}"]
-                        # Fetch Swimmer's club
-                        se.swimmer.club.total_points += config["medal_points"][f"{se.medal}"]
-                        db.commit()
+
+            if len(participants) > 2:
+                # Check if the 3rd person is not absent or DNF
+                if participants[2].time != "99:99:99" or participant[2].time != "88:88:88":
+                    for se in participants:
+                        # Assign points based on medal
+                        if se.time is not None and f"{se.medal}" in config["medal_points"]:
+                            swimmer_points[(se.swimmer.age_group, se.swimmer.gender)][se.swimmer_id] += config["medal_points"][f"{se.medal}"]
+                            # Fetch Swimmer's club
+                            se.swimmer.club.total_points += config["medal_points"][f"{se.medal}"]
+                            db.commit()
 
             event_results.append({
                 "id": event.id,
@@ -605,7 +682,7 @@ async def get_event_results(request: Request, db: Session = Depends(get_db)):
         key: championship_standings[key]
         for key in sorted(championship_standings.keys(), key=lambda x: (x[0], x[1]))
     }
-    
+
     sorted_club_standings = db.query(Club).order_by(Club.total_points.desc()).all()
 
     return templates.TemplateResponse("results.html", {"request": request, "results": event_results, "standings": sorted_championship_standings, "club_standings": sorted_club_standings})

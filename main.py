@@ -8,11 +8,12 @@ from models import Event, Base
 from sqlalchemy import create_engine
 from sqlalchemy.orm import Session, sessionmaker
 from sqlalchemy.ext.declarative import declarative_base
-
+from dotenv import load_dotenv
+load_dotenv()
 from pathlib import Path
+import os
 import json
-
-SQLALCHEMY_DATABASE_URL = "sqlite:///./swimming_competition.db"
+SQLALCHEMY_DATABASE_URL = os.environ.get("DATABASE_URL", "postgresql://postgres:ErmWsGnksaBwaCWStClxMdAhUTAFILmP@postgres.railway.internal:5432/railway")
 
 engine = create_engine(SQLALCHEMY_DATABASE_URL,
                        pool_size=20, max_overflow=0)

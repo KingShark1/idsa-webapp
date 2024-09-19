@@ -26,6 +26,7 @@ class Swimmer(Base):
     sfi_id = Column(String, default=None)
     events = relationship("SwimmerEvent", back_populates="swimmer")  # Define the relationship
     relay_events = relationship("RelayEvent", secondary=relay_swimmer_association, back_populates="swimmers")
+    final_events = relationship("FinalEvent", back_populates="swimmer")
 
 
 class Club(Base):
@@ -43,6 +44,9 @@ class Event(Base):
     gender = Column(String)
     time_trial = Column(Boolean)
     swimmers = relationship("SwimmerEvent", back_populates="event")
+    final_events = relationship("FinalEvent", back_populates="event")
+    relay_events = relationship("RelayEvent", back_populates="event")
+
 
 class SwimmerEvent(Base):
     __tablename__ = "swimmer_events"
@@ -68,7 +72,17 @@ class RelayEvent(Base):
     time = Column(String)
     club = relationship("Club", back_populates="relay_events")
     swimmers = relationship("Swimmer", secondary=relay_swimmer_association, back_populates="relay_events")
+    event = relationship("Event", back_populates="relay_events")
 
+class FinalEvent(Base):
+    __tablename__ = "final_events"
+    id = Column(Integer, primary_key=True, index=True)
+    event_id = Column(Integer, ForeignKey("events.id"))
+    swimmer_id = Column(Integer, ForeignKey("swimmers.id"))
+    time = Column(String)
+    medal = Column(Integer)
+    event = relationship("Event", back_populates="final_events")
+    swimmer = relationship("Swimmer", back_populates="final_events")
 
 Club.relay_events = relationship("RelayEvent", back_populates="club")
 # Pydantic models for responses
@@ -106,9 +120,10 @@ class SwimmerEventForCompetitionModel(BaseModel):
     gender: str
     club: Optional[ClubModel]  # or you can have it as a dictionary if you need more info, e.g., club: dict
     events: List[str]  # A list of events that the swimmer is participating in
+    relay_events: List[str]
 
     class Config:
-        orm_mode = True    
+        orm_mode = True
 
 class SwimmerUpdateModel(BaseModel):
     id: int
@@ -167,7 +182,7 @@ class RelayParticipantModel(BaseModel):
 class RelaySubmission(BaseModel):
     relay_event_id: int
     time: str
-    
+
 class AssignSwimmerRequest(BaseModel):
     swimmer_id: int  # ID of the swimmer being assigned
     event_id: int  # ID of the event
@@ -176,5 +191,20 @@ class AssignSwimmerRequest(BaseModel):
 
     class Config:
         orm_mode = True  # Allows compatibility with SQLAlchemy ORM objects
+
+class UpdateFinalTimeRequest(BaseModel):
+    event_id: int
+    swimmer_event_id: int
+    time: str
+
+class RelayEventAssociation(Base):
+    __tablename__ = "relay_event_associations"
+
+    id = Column(Integer, primary_key=True)
+    relay_event_id = Column(Integer, ForeignKey("relay_events.id"))
+    event_id = Column(Integer, ForeignKey("events.id"))
+
+    relay_event = relationship("RelayEvent", backref="associations")
+    event = relationship("Event", backref="associations")
 # Resolve forward reference
 EventModel.update_forward_refs()
