@@ -2,9 +2,10 @@ import json
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from models import Base, Event
+import os
 
 # Database setup
-SQLALCHEMY_DATABASE_URL = "sqlite:///./swimming_competition.db"
+SQLALCHEMY_DATABASE_URL = os.environ.get("DATABASE_URL", "postgresql://postgres:ErmWsGnksaBwaCWStClxMdAhUTAFILmP@postgres.railway.internal:5432/railway")
 engine = create_engine(SQLALCHEMY_DATABASE_URL)
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 
@@ -19,7 +20,7 @@ def convert_csv_to_json(csv_file, json_file):
 
     with open('static/config.json', 'r') as config_file:
         config = json.load(config_file)
-    
+
     assert "age_group_map" in config
     assert "gender_map" in config
     assert "time_trial_map" in config
