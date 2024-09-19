@@ -13,7 +13,7 @@ load_dotenv()
 from pathlib import Path
 import os
 import json
-SQLALCHEMY_DATABASE_URL = os.environ.get("DATABASE_URL", "postgresql://postgres:ErmWsGnksaBwaCWStClxMdAhUTAFILmP@postgres.railway.internal:5432/railway")
+SQLALCHEMY_DATABASE_URL = os.environ.get("DATABASE_URL", "postgresql://postgres:dmuqxqhpwlVTDdRdIyEULeontdCSdFOu@autorack.proxy.rlwy.net:37151/railway")
 
 engine = create_engine(SQLALCHEMY_DATABASE_URL,
                        pool_size=20, max_overflow=0)
