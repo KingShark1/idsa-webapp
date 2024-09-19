@@ -125,7 +125,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             // Handle finals
 
-            if (event.time_trial === false && event.participant_count > 8) {
+            if (event.time_trial === false) {
               window.prepareFinalEvent(event, eventTitle);
             }
           }

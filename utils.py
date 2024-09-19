@@ -10,15 +10,23 @@ def load_json(file_path: str):
         events = json.load(file)
     return events
 
-def convert_time_to_total_ms(time_str):
+def convert_time_to_total_ms(se, time_str):
     """Convert time string (mm:ss:ms) to total milliseconds."""
-    if not time_str:
-        return float('inf')  # Treat missing times as infinitely large
-    if time_str == "":
+    try:
+        if not time_str:
+            return float('inf')  # Treat missing times as infinitely large
+        if time_str == "":
+            return float('inf')
+        if time_str =='':
+            return float('inf')
+        print(se.event_id)
+        minutes, seconds, milliseconds = map(int, time_str.split(':'))
+        total_ms = (minutes * 60 * 100) + (seconds * 100) + milliseconds
+        return total_ms
+    except Exception as e:
+        print(e)
+        print(se.swimmer.name, se.event_id, time_str)
         return float('inf')
-    minutes, seconds, milliseconds = map(int, time_str.split(':'))
-    total_ms = (minutes * 60 * 100) + (seconds * 100) + milliseconds
-    return total_ms
 
 # Custom filter to format date
 def format_date(value, format="%d-%m-%Y"):

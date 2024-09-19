@@ -258,8 +258,9 @@ async def get_swimmer_events(swimmer_id: int, db: Session = Depends(get_db)):
     swimmer_events = db.query(SwimmerEvent).filter(SwimmerEvent.swimmer_id == swimmer_id).all()
     event_names = [se.event.name for se in swimmer_events]
 
-    relay_swimmer_event = db.query(RelayEvent).filter(RelayEvent.swimmer_id == swimmer_id).all()
-    relay_event_names = [se.event.name for se in relay_swimmer_event]
+    # relay_swimmer_event = db.query(RelayEvent).filter(RelayEvent.swimmer_id == swimmer_id).all()
+    # relay_event_names = [se.event.name for se in relay_swimmer_event]
+    relay_event_names = []
     logging.info(relay_event_names)
     # Return swimmer details along with the event names
     return {
@@ -471,10 +472,12 @@ async def update_final_times(request: List[UpdateFinalTimeRequest], db: Session 
             logging.info(update)
 
             # Check if the event is a final event
+            swimmer_event = db.query(SwimmerEvent).filter(SwimmerEvent.id == update.swimmer_event_id).first()
+            swimmer = swimmer_event.swimmer
             event = db.query(Event).filter(Event.id == update.event_id).first()
             if event and event.time_trial is False:
                 # Update final time for a swimmer event
-                final_event = db.query(FinalEvent).filter(FinalEvent.event_id == update.event_id, FinalEvent.swimmer_id == update.swimmer_event_id).first()
+                final_event = db.query(FinalEvent).filter(FinalEvent.event_id == update.event_id, FinalEvent.swimmer_id == swimmer.id).first()
                 if final_event:
                     if update.time == "::":
                         final_event.time = None
@@ -483,17 +486,21 @@ async def update_final_times(request: List[UpdateFinalTimeRequest], db: Session 
                     logging.info(final_event.swimmer)
                     logging.info(f"Updated FinalEvent: {final_event.time}, Swimmer: {final_event.swimmer.name}, Event ID: {final_event.event_id}")
                 else:
+                    logging.info("Final event not found, creating new one.")
                     # Create a new FinalEvent record if it doesn't exist
                     logging.info(update.swimmer_event_id)
                     swimmer_event = db.query(SwimmerEvent).get(update.swimmer_event_id)
                     swimmer = swimmer_event.swimmer
                     logging.info(swimmer)
                     event = db.query(Event).get(update.event_id)
-
+                    if update.time == "::":
+                        time = None
+                    else:
+                        time = update.time
                     final_event = FinalEvent(
                         event_id=event.id,
                         swimmer_id=swimmer.id,
-                        time=update.time,
+                        time=time,
                         swimmer=swimmer,
                         event=event
                     )
@@ -556,7 +563,7 @@ async def get_event_results(request: Request, db: Session = Depends(get_db)):
     for event in events:
         if "Relay" in event.name:
             participants = db.query(RelayEvent).filter(RelayEvent.event_id == event.id).all()
-            participants.sort(key=lambda se: (convert_time_to_total_ms(se.time), se.time is None))
+            participants.sort(key=lambda se: (convert_time_to_total_ms(se, se.time), se.time is None))
             relay_participants = []
             for i, se in enumerate(participants):
                 if i <= config["min_participants_for_relay_points"]:
@@ -596,11 +603,15 @@ async def get_event_results(request: Request, db: Session = Depends(get_db)):
         else:
             if event.time_trial:
                 participants = db.query(SwimmerEvent).filter(SwimmerEvent.event_id == event.id).all()
+                participants.sort(key=lambda se: (convert_time_to_total_ms(se, se.time), se.time is None))
             else:
+
                 participants = db.query(FinalEvent).filter(FinalEvent.event_id == event.id).all()
-            # Sort participants by total milliseconds, keeping those without time at the bottom
-            # participants = [se for se in participants if se.time is not None]
-            participants.sort(key=lambda se: (convert_time_to_total_ms(se.time), se.time is None))
+                # Sort participants by total milliseconds, keeping those without time at the bottom
+                # participants = [se for se in participants if se.time is not None]
+
+                participants.sort(key=lambda se: (convert_time_to_total_ms(se, se.time), se.time is None))
+
 
             # Assign medals to the top n participants, configured in the config.json
             for i, se in enumerate(participants):
