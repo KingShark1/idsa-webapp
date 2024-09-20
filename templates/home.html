@@ -1,18 +1,16 @@
-{% extends "base.html" %}
-
-{% block content %}
+{% extends "base.html" %} {% block content %}
 <main>
     <section id="add-swimmer-section">
         <h2>Add New Swimmer</h2>
         <form id="add-swimmer-form-step-1" class="form-container">
             <div class="form-group">
                 <label for="name">Name:</label>
-                <input type="text" id="name" name="name" required>
+                <input type="text" id="name" name="name" required />
             </div>
 
             <div class="form-group">
                 <label for="dob">Date of Birth:</label>
-                <input type="date" id="dob" name="dob" required>
+                <input type="date" id="dob" name="dob" required />
             </div>
 
             <div class="form-group">
@@ -22,30 +20,23 @@
                         <th>Birth Year</th>
                         <th>Group</th>
                     </tr>
+
                     <tr>
-                        <td>2006 & before</td>
-                        <td>Senior</td>              
+                        <td>2006, 2007</td>
+                        <td>U - 19</td>
                     </tr>
                     <tr>
-                        <td>2007, 2008, 2009</td>
-                        <td>Group 1</td>
+                        <td>2008, 2009, 2010</td>
+                        <td>U - 17</td>
                     </tr>
                     <tr>
-                        <td>2010, 2011, 2012</td>
-                        <td>Group 2</td>
-                    </tr>
-                    <tr>
-                        <td>2013, 2014</td>
-                        <td>Group 3</td>
-                    </tr>
-                    <tr>
-                        <td>20015, 2016</td>
-                        <td>Group 4</td>
+                        <td>2011, 2012</td>
+                        <td>U - 14</td>
                     </tr>
                 </table>
                 <select id="age_group" name="age_group" required>
                     {% for display_name, value in age_group_map.items() %}
-                        <option value="{{ value }}"> {{ display_name }}</option>
+                    <option value="{{ value }}">{{ display_name }}</option>
                     {% endfor %}
                 </select>
             </div>
@@ -61,26 +52,29 @@
             <button type="submit" class="btn">Next</button>
         </form>
 
-        <form id="add-swimmer-form-step-2" class="form-container" style="display: none;">
-            <input type="hidden" id="step1_name" name="name">
-            <input type="hidden" id="step1_dob" name="dob">
-            <input type="hidden" id="step1_age_group" name="age_group">
-            <input type="hidden" id="step1_gender" name="gender">
+        <form
+            id="add-swimmer-form-step-2"
+            class="form-container"
+            style="display: none"
+        >
+            <input type="hidden" id="step1_name" name="name" />
+            <input type="hidden" id="step1_dob" name="dob" />
+            <input type="hidden" id="step1_age_group" name="age_group" />
+            <input type="hidden" id="step1_gender" name="gender" />
 
             <div class="form-group">
                 <label for="club">Club:</label>
-                <input type="text" id="club" name="club" required>
+                <input type="text" id="club" name="club" required />
             </div>
 
             <div class="form-group">
                 <label for="sfi_id">SFI ID (optional):</label>
-                <input type="text" id="sfi_id" name="sfi_id">
+                <input type="text" id="sfi_id" name="sfi_id" />
             </div>
 
             <div class="form-group">
                 <label for="event_id">Events:</label>
-                <div id="event-list">
-                </div>
+                <div id="event-list"></div>
             </div>
 
             <button type="submit" class="btn">Add Swimmer</button>

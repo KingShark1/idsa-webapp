@@ -146,10 +146,14 @@ async def add_swimmer(
 @router.get("/events", response_model=List[EventModel])
 def get_events(age_group: Optional[int] = Query(None), gender: Optional[str] = Query(None), db: Session = Depends(get_db)):
     if gender:
-        events = db.query(Event).filter(Event.age_group == age_group).filter(Event.gender == gender.lower()).all()
+        events = db.query(Event).filter(Event.age_group == age_group).filter(Event.gender == gender.lower()).order_by(Event.name).all()
     else:
         events = db.query(Event).all()
-    return events
+
+    # Sort events by stroke name (part after 'mt.')
+    sorted_events = sorted(events, key=lambda e: e.name.split("mt. ")[-1].strip().lower(), reverse=True)
+
+    return sorted_events
 
 @router.get("/swimmers", response_model=List[SwimmerModel])
 def get_swimmers(

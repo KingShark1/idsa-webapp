@@ -45,6 +45,24 @@ def convert_csv_to_json(csv_file, json_file):
 
 # Usage
 
+def reset_database():
+    """
+    Drops all tables from the database and recreates them.
+    This function should only be used in a testing environment.
+    """
+    db = SessionLocal()
+    try:
+        # Drop all tables
+        Base.metadata.drop_all(bind=engine)
+        print("All tables dropped successfully.")
+
+        # Recreate the tables
+        Base.metadata.create_all(bind=engine)
+        print("All tables recreated successfully.")
+
+    finally:
+        db.close()
+
 
 # Load events into the database
 def load_events():
@@ -66,5 +84,6 @@ def load_events():
         db.close()
 
 if __name__ == "__main__":
-    convert_csv_to_json('CBSE West Zone 2024 - EventChart.csv', 'events.json')
+    reset_database()
+    convert_csv_to_json("Schools_District_2024.csv", 'events.json')
     load_events()
