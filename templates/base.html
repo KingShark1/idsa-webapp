@@ -1,27 +1,27 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" http-equiv="Content-Security-Policy" content="width=device-width, initial-scale=1.0, upgrade-insecure-requests">
-    <title>Swimming Competition</title>
-    <link rel="stylesheet" href="/static/css/styles.css">
-</head>
-<body>
-    <header>
-        <h1>Indore District Swimming Association</h1>
-        <nav>
-            <ul>
-                <li><a href="/">Home</a></li>
-                <li><a href="/view_swimmers">View Swimmers</a></li>
-                <li><a href="/competition">Competition</a></li>
-                <li><a href="/results">Results</a></li>
-            </ul>
-        </nav>
-    </header>
-    <main>
-        {% block content %}
-        {% endblock %}
-    </main>
-    <script src="/static/js/main.js"></script>
-</body>
+    <head>
+        <meta charset="UTF-8" />
+        <meta
+            name="viewport"
+            http-equiv="Content-Security-Policy"
+            content="width=device-width, initial-scale=1.0, upgrade-insecure-requests"
+        />
+        <title>Swimming Competition</title>
+        <link rel="stylesheet" href="/static/css/styles.css" />
+    </head>
+    <body>
+        <header>
+            <h1>Indore District Swimming Association</h1>
+            <nav>
+                <ul>
+                    <li><a href="/">Home</a></li>
+
+                    <li><a href="/results">Results</a></li>
+                </ul>
+            </nav>
+        </header>
+        <main>{% block content %} {% endblock %}</main>
+        <script src="/static/js/main.js"></script>
+    </body>
 </html>
