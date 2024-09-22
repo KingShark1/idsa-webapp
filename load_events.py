@@ -5,7 +5,8 @@ from models import Base, Event
 import os
 
 # Database setup
-SQLALCHEMY_DATABASE_URL = os.environ.get("DATABASE_URL", "postgresql://postgres:dmuqxqhpwlVTDdRdIyEULeontdCSdFOu@autorack.proxy.rlwy.net:37151/railway")
+SQLALCHEMY_DATABASE_URL = os.environ.get("DATABASE_URL", "postgresql://postgres:axUOJvfmpJyrVQPDjepPvplCSvuEhYFU@autorack.proxy.rlwy.net:35895/railway")
+
 engine = create_engine(SQLALCHEMY_DATABASE_URL)
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 
