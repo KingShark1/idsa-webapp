@@ -624,7 +624,7 @@ async def get_event_results(request: Request, db: Session = Depends(get_db)):
 
             if len(participants) > 2:
                 # Check if the 3rd person is not absent or DNF
-                if participants[2].time != "99:99:99" or participant[2].time != "88:88:88":
+                if participants[2].time != "99:99:99" or participants[2].time != "88:88:88":
                     for se in participants:
                         # Assign points based on medal
                         if se.time is not None and f"{se.medal}" in config["medal_points"]:
