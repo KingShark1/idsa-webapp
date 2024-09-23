@@ -343,7 +343,7 @@ async def get_eligible_swimmers(event_id: int, db: Session = Depends(get_db)):
     # Fetch swimmers eligible for the event based on age group and gender
     eligible_swimmers = db.query(Swimmer).filter(
         Swimmer.age_group == event.age_group,
-        Swimmer.gender == event.gender,
+        Swimmer.gender ==str.capitalize(event.gender),
 
     ).all()
     print(eligible_swimmers)
