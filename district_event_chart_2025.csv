@@ -4,93 +4,93 @@ Event No,Event,Gender,Age Group,Mode
 3,1500 mt. Free Style,Boys,I,Time Trial
 4,1500 mt. Free Style,Girls,I,Time Trial
 5,1500 mt. Free Style,Boys,II,Time Trial
-6,1500 mt. FreeStyle,Girls,II,Time Trial
+6,1500 mt. Free Style,Girls,II,Time Trial
 7,200 mt. Back Stroke,Boys,I,Time Trial
 8,200 mt. Back Stroke,Girls,I,Time Trial
 9,200 mt. Back Stroke,Boys,II,Time Trial
 10,200 mt. Back Stroke,Girls,II,Time Trial
-11,200 mt. Back Stroke,Men,Senior,Time Trial
-12,200 mt. Back Stroke,Women,Senior,Time Trial
-13,200 mt. I.M.,Boys,I,Time Trial
-14,200 mt. I.M.,Girls,I,Time Trial
-15,200 mt. I.M.,Boys,II,Time Trial
-16,200 mt. I.M.,Girls,II,Time Trial
-17,200 mt. I.M.,Boys,III,Time Trial
-18,200 mt. I.M.,Girls,III,Time Trial
-19,200 mt. I.M.,Boys,IV,Time Trial
-20,200 mt. I.M.,Girls,IV,Time Trial
-21,200 mt. I.M.,Men,Senior,Time Trial
-22,200 mt. I.M.,Women,Senior,Time Trial
-23,200 mt. Butterfly Stroke,Boys,I,Time Trial
-24,200 mt. Butterfly Stroke,Girls,I,Time Trial
-25,200 mt. Butterfly Stroke,Boys,II,Time Trial
-26,200 mt. Butterfly Stroke,Girls,II,Time Trial
-27,200 mt. Butterfly Stroke,Men,Senior,Time Trial
-28,200 mt. Butterfly Stroke,Women,Senior,Time Trial
-29,400 mt. Free Style,Boys,I,Time Trial
-30,400 mt. Free Style,Girls,I,Time Trial
-31,400 mt. Free Style,Boys,II,Time Trial
-32,400 mt. Free Style,Girls,II,Time Trial
-33,400 mt. Free Style,Boys,III,Time Trial
-34,400 mt. Free Style,Girls,III,Time Trial
-35,400 mt. Free Style,Men,Senior,Time Trial
-36,400 mt. Free Style,Women,Senior,Time Trial
-37,200 mt. Breast Stroke,Boys,I,Time Trial
-38,200 mt. Breast Stroke,Girls,I,Time Trial
-39,200 mt. Breast Stroke,Boys,II,Time Trial
-40,200 mt. Breast Stroke,Girls,II,Time Trial
-41,200 mt. Breast Stroke,Men,Senior,Time Trial
-42,200 mt. Breast Stroke,Women,Senior,Time Trial
-43,100 mt. Free Style,Boys,I,Time Trial
-44,100 mt. Free Style,Girls,I,Time Trial
-45,100 mt. Free Style,Boys,II,Time Trial
-46,100 mt. Free Style,Girls,II,Time Trial
-47,100 mt. Free Style,Boys,III,Time Trial
-48,100 mt. Free Style,Girls,III,Time Trial
-49,100 mt. Free Style,Boys,IV,Time Trial
-50,100 mt. Free Style,Girls,IV,Time Trial
-51,100 mt. Free Style,Men,Senior,Time Trial
-52,100 mt. Free Style,Women,Senior,Time Trial
-53,50 mt. Back Stroke,Girls,I,Time Trial
-54,50 mt. Back Stroke,Boys,I,Time Trial
-55,50 mt. Back Stroke,Boys,II,Time Trial
-56,50 mt. Back Stroke,Girls,II,Time Trial
-57,50 mt. Back Stroke,Boys,III,Time Trial
-58,50 mt. Back Stroke,Girls,III,Time Trial
-59,50 mt. Back Stroke,Boys,IV,Time Trial
-60,50 mt. Back Stroke,Girls,IV,Time Trial
-61,50 mt. Back Stroke,Women,Senior,Time Trial
-62,50 mt. Back Stroke,Men,Senior,Time Trial
-63,50 mt. Breast Stroke,Boys,I,Time Trial
-64,50 mt. Breast Stroke,Girls,I,Time Trial
-65,50 mt. Breast Stroke,Boys,II,Time Trial
-66,50 mt. Breast Stroke,Girls,II,Time Trial
-67,50 mt. Breast Stroke,Boys,III,Time Trial
-68,50 mt. Breast Stroke,Girls,III,Time Trial
-69,50 mt. Breast Stroke,Boys,IV,Time Trial
-70,50 mt. Breast Stroke,Girls,IV,Time Trial
-71,50 mt. Breast Stroke,Men,Senior,Time Trial
-72,50 mt. Breast Stroke,Women,Senior,Time Trial
-73,800 mt. Free Style,Men,Senior,Time Trial
-74,800 mt. Free Style,Women,Senior,Time Trial
-75,800 mt. Free Style,Boys,I,Time Trial
-76,800 mt. Free Style,Girls,I,Time Trial
-77,800 mt. Free Style,Boys,II,Time Trial
-78,800 mt. Free Style,Girls,II,Time Trial
-79,100 mt. Butterfly Stroke,Boys,I,Time Trial
-80,100 mt. Butterfly Stroke,Girls,I,Time Trial
-81,100 mt. Butterfly Stroke,Boys,II,Time Trial
-82,100 mt. Butterfly Stroke,Girls,II,Time Trial
-83,100 mt. Butterfly Stroke,Boys,III,Time Trial
-84,100 mt. Butterfly Stroke,Girls,III,Time Trial
-85,100 mt. Butterfly Stroke,Men,Senior,Time Trial
-86,100 mt. Butterfly Stroke,Women,Senior,Time Trial
-87,50 mt. Free Style,Girls,I,Time Trial
-88,50 mt. Free Style,Boys,I,Time Trial
-89,50 mt. Free Style,Girls,II,Time Trial
-90,50 mt. Free Style,Boys,II,Time Trial
-91,50 mt. Free Style,Boys,III,Time Trial
-92,50 mt. Free Style,Girls,III,Time Trial
+11,200 mt. Back Stroke,Boys,III ,Time Trial
+12,200 mt. Back Stroke,Girls,III ,Time Trial
+13,200 mt. Back Stroke,Men,Senior,Time Trial
+14,200 mt. Back Stroke,Women,Senior,Time Trial
+15,200 mt. I.M.,Boys,I,Time Trial
+16,200 mt. I.M.,Girls,I,Time Trial
+17,200 mt. I.M.,Boys,II,Time Trial
+18,200 mt. I.M.,Girls,II,Time Trial
+19,200 mt. I.M.,Boys,III,Time Trial
+20,200 mt. I.M.,Girls,III,Time Trial
+21,200 mt. I.M.,Boys,IV,Time Trial
+22,200 mt. I.M.,Girls,IV,Time Trial
+23,200 mt. I.M.,Men,Senior,Time Trial
+24,200 mt. I.M.,Women,Senior,Time Trial
+25,200 mt. Butterfly Stroke,Boys,I,Time Trial
+26,200 mt. Butterfly Stroke,Girls,I,Time Trial
+27,200 mt. Butterfly Stroke,Boys,II,Time Trial
+28,200 mt. Butterfly Stroke,Girls,II,Time Trial
+29,200 mt. Butterfly Stroke,Boys,III,Time Trial
+30,200 mt. Butterfly Stroke,Girls,III,Time Trial
+31,200 mt. Butterfly Stroke,Men,Senior,Time Trial
+32,200 mt. Butterfly Stroke,Women,Senior,Time Trial
+33,400 mt. Free Style,Boys,I,Time Trial
+34,400 mt. Free Style,Girls,I,Time Trial
+35,400 mt. Free Style,Boys,II,Time Trial
+36,400 mt. Free Style,Girls,II,Time Trial
+37,400 mt. Free Style,Boys,III,Time Trial
+38,400 mt. Free Style,Girls,III,Time Trial
+39,400 mt. Free Style,Men,Senior,Time Trial
+40,400 mt. Free Style,Women,Senior,Time Trial
+41,200 mt. Breast Stroke,Boys,I,Time Trial
+42,200 mt. Breast Stroke,Girls,I,Time Trial
+43,200 mt. Breast Stroke,Boys,II,Time Trial
+44,200 mt. Breast Stroke,Girls,II,Time Trial
+45,200 mt. Breast Stroke,Boys,III,Time Trial
+46,200 mt. Breast Stroke,Girls,III,Time Trial
+47,200 mt. Breast Stroke,Men,Senior,Time Trial
+48,200 mt. Breast Stroke,Women,Senior,Time Trial
+49,100 mt. Free Style,Boys,I,Time Trial
+50,100 mt. Free Style,Girls,I,Time Trial
+51,100 mt. Free Style,Boys,II,Time Trial
+52,100 mt. Free Style,Girls,II,Time Trial
+53,100 mt. Free Style,Boys,III,Time Trial
+54,100 mt. Free Style,Girls,III,Time Trial
+55,100 mt. Free Style,Boys,IV,Time Trial
+56,100 mt. Free Style,Girls,IV,Time Trial
+57,100 mt. Free Style,Men,Senior,Time Trial
+58,100 mt. Free Style,Women,Senior,Time Trial
+59,50 mt. Back Stroke,Girls,I,Time Trial
+60,50 mt. Back Stroke,Boys,I,Time Trial
+61,50 mt. Back Stroke,Boys,II,Time Trial
+62,50 mt. Back Stroke,Girls,II,Time Trial
+63,50 mt. Back Stroke,Boys,IV,Time Trial
+64,50 mt. Back Stroke,Girls,IV,Time Trial
+65,50 mt. Back Stroke,Women,Senior,Time Trial
+66,50 mt. Back Stroke,Men,Senior,Time Trial
+67,50 mt. Breast Stroke,Boys,I,Time Trial
+68,50 mt. Breast Stroke,Girls,I,Time Trial
+69,50 mt. Breast Stroke,Boys,II,Time Trial
+70,50 mt. Breast Stroke,Girls,II,Time Trial
+71,50 mt. Breast Stroke,Boys,IV,Time Trial
+72,50 mt. Breast Stroke,Girls,IV,Time Trial
+73,50 mt. Breast Stroke,Men,Senior,Time Trial
+74,50 mt. Breast Stroke,Women,Senior,Time Trial
+75,800 mt. Free Style,Men,Senior,Time Trial
+76,800 mt. Free Style,Women,Senior,Time Trial
+77,800 mt. Free Style,Boys,I,Time Trial
+78,800 mt. Free Style,Girls,I,Time Trial
+79,800 mt. Free Style,Boys,II,Time Trial
+80,800 mt. Free Style,Girls,II,Time Trial
+81,100 mt. Butterfly Stroke,Boys,I,Time Trial
+82,100 mt. Butterfly Stroke,Girls,I,Time Trial
+83,100 mt. Butterfly Stroke,Boys,II,Time Trial
+84,100 mt. Butterfly Stroke,Girls,II,Time Trial
+85,100 mt. Butterfly Stroke,Boys,III,Time Trial
+86,100 mt. Butterfly Stroke,Girls,III,Time Trial
+87,100 mt. Butterfly Stroke,Men,Senior,Time Trial
+88,100 mt. Butterfly Stroke,Women,Senior,Time Trial
+89,50 mt. Free Style,Girls,I,Time Trial
+90,50 mt. Free Style,Boys,I,Time Trial
+91,50 mt. Free Style,Girls,II,Time Trial
+92,50 mt. Free Style,Boys,II,Time Trial
 93,50 mt. Free Style,Boys,IV,Time Trial
 94,50 mt. Free Style,Girls,IV,Time Trial
 95,50 mt. Free Style,Women,Senior,Time Trial
@@ -129,9 +129,7 @@ Event No,Event,Gender,Age Group,Mode
 128,50 mt. Butterfly Stroke,Boys,I,Time Trial
 129,50 mt. Butterfly Stroke,Girls,II,Time Trial
 130,50 mt. Butterfly Stroke,Boys,II,Time Trial
-131,50 mt. Butterfly Stroke,Boys,III,Time Trial
-132,50 mt. Butterfly Stroke,Girls,III,Time Trial
-133,50 mt. Butterfly Stroke,Boys,IV,Time Trial
-134,50 mt. Butterfly Stroke,Girls,IV,Time Trial
-135,50 mt. Butterfly Stroke,Women,Senior,Time Trial
-136,50 mt. Butterfly Stroke,Men,Senior,Time Trial
+131,50 mt. Butterfly Stroke,Girls,IV,Time Trial
+132,50 mt. Butterfly Stroke,Boys,IV,Time Trial
+133,50 mt. Butterfly Stroke,Women,Senior,Time Trial
+134,50 mt. Butterfly Stroke,Men,Senior,Time Trial
