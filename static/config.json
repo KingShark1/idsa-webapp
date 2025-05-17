@@ -2,8 +2,8 @@
   "totalDays": 2,
 
   "eventsByDay": {
-    "1": [1, 46],
-    "2": [47, 91]
+    "1": [1, 73],
+    "2": [73, 136]
   },
   "age_group_map": {
     "Senior": 0,
