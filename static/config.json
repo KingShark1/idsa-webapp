@@ -1,13 +1,16 @@
 {
-  "totalDays": 1,
+  "totalDays": 2,
 
   "eventsByDay": {
-    "1": [1, 91]
+    "1": [1, 46],
+    "2": [47, 91]
   },
   "age_group_map": {
-    "U - 19": 1,
-    "U - 17": 2,
-    "U - 14": 3
+    "Senior": 0,
+    "I": 1,
+    "II": 2,
+    "III": 3,
+    "IV": 4
   },
 
   "max_events_per_age_group": {
