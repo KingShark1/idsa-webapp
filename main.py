@@ -15,7 +15,6 @@ from pathlib import Path
 
 SQLALCHEMY_DATABASE_URL = os.environ.get(
     "DATABASE_URL",
-    "postgresql://postgres:RxkaolbdRsElSWyRGELrCraSfzXvRdnE@yamanote.proxy.rlwy.net:14562/railway",
 )
 
 engine = create_engine(SQLALCHEMY_DATABASE_URL, pool_size=20, max_overflow=0)

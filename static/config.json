@@ -6,9 +6,9 @@
     "2": [46, 91]
   },
   "age_group_map": {
-    "I": 1,
-    "II": 2,
-    "III": 3
+    "U - 19": 1,
+    "U - 17": 2,
+    "U - 14": 3
   },
 
   "max_events_per_age_group": {

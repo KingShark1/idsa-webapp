@@ -9,7 +9,6 @@ from models import Base, Event
 # Database setup
 SQLALCHEMY_DATABASE_URL = os.environ.get(
     "DATABASE_URL",
-    "postgresql://postgres:KdGjvRMWrSYdvgDqeJGryGFrctIANejF@switchback.proxy.rlwy.net:42495/railway",
 )
 
 engine = create_engine(SQLALCHEMY_DATABASE_URL)

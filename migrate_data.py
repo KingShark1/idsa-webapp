@@ -1,10 +1,12 @@
 from sqlalchemy import create_engine, select, text
 from sqlalchemy.orm import sessionmaker
+
 from models import Base
 
+
 def migrate_data():
-    engine_lite = create_engine('sqlite:///swimming_competition.db')
-    engine_cloud = create_engine('postgresql://postgres:ErmWsGnksaBwaCWStClxMdAhUTAFILmP@autorack.proxy.rlwy.net:47961/railway')
+    engine_lite = create_engine("sqlite:///swimming_competition.db")
+    engine_cloud = create_engine("postgresql:")
 
     Session_lite = sessionmaker(bind=engine_lite)
     Session_cloud = sessionmaker(bind=engine_cloud)
@@ -15,7 +17,9 @@ def migrate_data():
     try:
         for table in Base.metadata.sorted_tables:
             # Clear existing data in the destination table
-            session_cloud.execute(text(f"TRUNCATE TABLE {table.name} RESTART IDENTITY CASCADE"))
+            session_cloud.execute(
+                text(f"TRUNCATE TABLE {table.name} RESTART IDENTITY CASCADE")
+            )
 
             # Fetch data from SQLite
             stmt = select(table)
@@ -38,6 +42,7 @@ def migrate_data():
     finally:
         session_lite.close()
         session_cloud.close()
+
 
 if __name__ == "__main__":
     migrate_data()
