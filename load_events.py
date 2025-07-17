@@ -9,7 +9,7 @@ from models import Base, Event
 # Database setup
 SQLALCHEMY_DATABASE_URL = os.environ.get(
     "DATABASE_URL",
-    "postgresql://postgres:RxkaolbdRsElSWyRGELrCraSfzXvRdnE@yamanote.proxy.rlwy.net:14562/railway",
+    "postgresql://postgres:KdGjvRMWrSYdvgDqeJGryGFrctIANejF@switchback.proxy.rlwy.net:42495/railway",
 )
 
 engine = create_engine(SQLALCHEMY_DATABASE_URL)
@@ -101,5 +101,5 @@ def load_events():
 
 if __name__ == "__main__":
     reset_database()
-    convert_csv_to_json("district_event_chart_2025.csv", "events.json")
+    convert_csv_to_json("event_charts/Schools_District_2025.csv", "events.json")
     load_events()
