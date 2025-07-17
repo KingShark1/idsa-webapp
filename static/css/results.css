@@ -114,6 +114,26 @@ button:hover {
     width: 20%; /* Adjust this percentage to fit the table width, for remaining columns */
 }
 
+.print-event {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 3px;
+    cursor: pointer;
+    margin-bottom: 10px;
+    font-size: 12px;
+}
+
+.print-event:hover {
+    background-color: #0056b3;
+}
+
+@media print {
+    .print-event {
+        display: none;
+    }
+}
 /* Print styles */
 @media print {
     body * {

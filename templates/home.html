@@ -1,136 +1,168 @@
-{% extends "base.html" %} {% block content %}
-<main>
-    <section id="add-swimmer-section">
-        <h2>Add New Swimmer</h2>
-        <form id="add-swimmer-form-step-1" class="form-container">
-            <div class="form-group">
-                <label for="name">Name:</label>
-                <input type="text" id="name" name="name" required />
-            </div>
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta
+            name="viewport"
+            http-equiv="Content-Security-Policy"
+            content="width=device-width, initial-scale=1.0, upgrade-insecure-requests"
+        />
+        <title>Swimming Competition</title>
+        <link rel="stylesheet" href="/static/css/styles.css" />
+    </head>
+    <body>
+        <header>
+            <h1>Indore District Swimming Association</h1>
+            <nav>
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <!-- <li><a href="/view_swimmers">View Swimmers</a></li>
+                    <li><a href="/competition">Competition</a></li>
+                    <li><a href="/results">Results</a></li> -->
+                </ul>
+            </nav>
+        </header>
+        <main>
+            <section id="add-swimmer-section">
+                <h2>Add New Swimmer</h2>
+                <form id="add-swimmer-form-step-1" class="form-container">
+                    <div class="form-group">
+                        <label for="name">Name:</label>
+                        <input type="text" id="name" name="name" required />
+                    </div>
 
-            <div class="form-group">
-                <label for="dob">Date of Birth:</label>
-                <input type="date" id="dob" name="dob" required />
-            </div>
+                    <div class="form-group">
+                        <label for="dob">Date of Birth:</label>
+                        <input type="date" id="dob" name="dob" required />
+                    </div>
 
-            <div class="form-group">
-                <label for="age_group">Age Group: Info</label>
-                <table>
-                    <tr>
-                        <th>Birth Year</th>
-                        <th>Group</th>
-                    </tr>
+                    <div class="form-group">
+                        <label for="age_group">Age Group: Info</label>
+                        <table>
+                            <tr>
+                                <th>Birth Year</th>
+                                <th>Group</th>
+                            </tr>
 
+                            <tr>
+                                <td>2011 or earlier</td>
+                                <td>Senior</td>
+                            </tr>
+                            <tr>
+                                <td>2008, 2009, 2010</td>
+                                <td>Group I</td>
+                            </tr>
+                            <tr>
+                                <td>2011, 2012</td>
+                                <td>Group II</td>
+                            </tr>
+                            <tr>
+                                <td>2013, 2014</td>
+                                <td>Group III</td>
+                            </tr>
+                            <tr>
+                                <td>2015, 2016, 2017</td>
+                                <td>Group IV</td>
+                            </tr>
+                        </table>
+                        <select id="age_group" name="age_group" required>
+                            {% for display_name, value in age_group_map.items()
+                            %}
+                            <option value="{{ value }}">
+                                {{ display_name }}
+                            </option>
+                            {% endfor %}
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="gender">Gender:</label>
+                        <select id="gender" name="gender" required>
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                        </select>
+                    </div>
+
+                    <button type="submit" class="btn">Next</button>
+                </form>
+
+                <form
+                    id="add-swimmer-form-step-2"
+                    class="form-container"
+                    style="display: none"
+                >
+                    <input type="hidden" id="step1_name" name="name" />
+                    <input type="hidden" id="step1_dob" name="dob" />
+                    <input
+                        type="hidden"
+                        id="step1_age_group"
+                        name="age_group"
+                    />
+                    <input type="hidden" id="step1_gender" name="gender" />
+
+                    <div class="form-group">
+                        <label for="club">Club:</label>
+                        <input type="text" id="club" name="club" required />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="sfi_id">SFI ID (optional):</label>
+                        <input type="text" id="sfi_id" name="sfi_id" />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="event_id">Events:</label>
+                        <div id="event-list"></div>
+                    </div>
+
+                    <button type="submit" class="btn">Add Swimmer</button>
+                </form>
+            </section>
+
+            <section id="swimmer-list-section">
+                <h2>Last Registered Swimmer</h2>
+                {% if swimmers %}
+                <table id="last-swimmer" class="table">
                     <tr>
-                        <td>2011 or earlier</td>
-                        <td>Senior</td>
+                        <td><strong>Name:</strong></td>
+                        <td>{{ swimmers.name }}</td>
                     </tr>
                     <tr>
-                        <td>2008, 2009, 2010</td>
-                        <td>Group I</td>
+                        <td><strong>Date of Birth:</strong></td>
+                        <td>{{ swimmers.dob | format_date }}</td>
                     </tr>
                     <tr>
-                        <td>2011, 2012</td>
-                        <td>Group II</td>
+                        <td><strong>Age Group:</strong></td>
+                        <td>{{ swimmers.age_group }}</td>
                     </tr>
                     <tr>
-                        <td>2013, 2014</td>
-                        <td>Group III</td>
+                        <td><strong>Gender:</strong></td>
+                        <td>{{ swimmers.gender }}</td>
                     </tr>
                     <tr>
-                        <td>2015, 2016, 2017</td>
-                        <td>Group IV</td>
+                        <td><strong>Club:</strong></td>
+                        <td>{{ swimmers.club.name }}</td>
+                    </tr>
+                    <tr>
+                        <td><strong>SFI ID:</strong></td>
+                        <td>{{ swimmers.sfi_id }}</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Events:</strong></td>
+                        <td>
+                            <ul>
+                                {% for event in swimmers.events %}
+                                <li>{{ event.event.name }}</li>
+                                {% endfor %}
+                            </ul>
+                        </td>
                     </tr>
                 </table>
-                <select id="age_group" name="age_group" required>
-                    {% for display_name, value in age_group_map.items() %}
-                    <option value="{{ value }}">{{ display_name }}</option>
-                    {% endfor %}
-                </select>
-            </div>
-
-            <div class="form-group">
-                <label for="gender">Gender:</label>
-                <select id="gender" name="gender" required>
-                    <option value="Male">Male</option>
-                    <option value="Female">Female</option>
-                </select>
-            </div>
-
-            <button type="submit" class="btn">Next</button>
-        </form>
-
-        <form
-            id="add-swimmer-form-step-2"
-            class="form-container"
-            style="display: none"
-        >
-            <input type="hidden" id="step1_name" name="name" />
-            <input type="hidden" id="step1_dob" name="dob" />
-            <input type="hidden" id="step1_age_group" name="age_group" />
-            <input type="hidden" id="step1_gender" name="gender" />
-
-            <div class="form-group">
-                <label for="club">Club:</label>
-                <input type="text" id="club" name="club" required />
-            </div>
-
-            <div class="form-group">
-                <label for="sfi_id">SFI ID (optional):</label>
-                <input type="text" id="sfi_id" name="sfi_id" />
-            </div>
-
-            <div class="form-group">
-                <label for="event_id">Events:</label>
-                <div id="event-list"></div>
-            </div>
-
-            <button type="submit" class="btn">Add Swimmer</button>
-        </form>
-    </section>
-
-    <section id="swimmer-list-section">
-        <h2>Last Registered Swimmer</h2>
-        {% if swimmers %}
-        <table id="last-swimmer" class="table">
-            <tr>
-                <td><strong>Name:</strong></td>
-                <td>{{ swimmers.name }}</td>
-            </tr>
-            <tr>
-                <td><strong>Date of Birth:</strong></td>
-                <td>{{ swimmers.dob | format_date }}</td>
-            </tr>
-            <tr>
-                <td><strong>Age Group:</strong></td>
-                <td>{{ swimmers.age_group }}</td>
-            </tr>
-            <tr>
-                <td><strong>Gender:</strong></td>
-                <td>{{ swimmers.gender }}</td>
-            </tr>
-            <tr>
-                <td><strong>Club:</strong></td>
-                <td>{{ swimmers.club.name }}</td>
-            </tr>
-            <tr>
-                <td><strong>SFI ID:</strong></td>
-                <td>{{ swimmers.sfi_id }}</td>
-            </tr>
-            <tr>
-                <td><strong>Events:</strong></td>
-                <td>
-                    <ul>
-                        {% for event in swimmers.events %}
-                        <li>{{ event.event.name }}</li>
-                        {% endfor %}
-                    </ul>
-                </td>
-            </tr>
-        </table>
-        {% else %}
-        <p>No swimmers registered yet.</p>
-        {% endif %}
-    </section>
-</main>
-{% endblock %}
+                {% else %}
+                <p>No swimmers registered yet.</p>
+                {% endif %}
+            </section>
+        </main>
+        <script src="/static/js/main.js"></script>
+    </body>
+</html>

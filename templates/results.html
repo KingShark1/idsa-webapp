@@ -21,6 +21,9 @@
                 <h2>Event Results</h2>
                 <button id="toggleTop3">Show Top 3</button>
                 {% for event in results %}
+                <button class="print-event" onclick="printEvent(this)">
+                    Print This Event
+                </button>
                 <div class="event-group">
                     <h3>
                         {{ event.id }} : {{ event.name }} {% if event.age_group
@@ -157,5 +160,6 @@
         </div>
 
         <script src="/static/js/results.js"></script>
+        <script src="/static/js/print-events.js"></script>
     </body>
 </html>
