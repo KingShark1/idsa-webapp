@@ -1,9 +1,8 @@
 {
-  "totalDays": 2,
+  "totalDays": 1,
 
   "eventsByDay": {
-    "1": [1, 45],
-    "2": [46, 91]
+    "1": [1, 91]
   },
   "age_group_map": {
     "U - 19": 1,
