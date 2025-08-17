@@ -1,14 +1,16 @@
 import json
 import os
 
+from dotenv import load_dotenv
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 
 from models import Base, Event
 
 # Database setup
+load_dotenv()
 SQLALCHEMY_DATABASE_URL = os.environ.get(
-    "DATABASE_URL",
+    "SQLALCHEMY_DATABASE_URL",
 )
 
 engine = create_engine(SQLALCHEMY_DATABASE_URL)
@@ -100,5 +102,5 @@ def load_events():
 
 if __name__ == "__main__":
     reset_database()
-    convert_csv_to_json("event_charts/Schools_District_2025.csv", "events.json")
+    convert_csv_to_json("event_charts/some-competition-2025.csv", "events.json")
     load_events()
