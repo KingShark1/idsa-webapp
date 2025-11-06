@@ -7,12 +7,14 @@ from sqlalchemy.orm import sessionmaker
 
 from models import Base, Event
 
-# Database setup
 load_dotenv()
-SQLALCHEMY_DATABASE_URL = os.environ.get(
-    "SQLALCHEMY_DATABASE_URL",
-)
 
+# Database setup
+SQLALCHEMY_DATABASE_URL = os.environ.get(
+    "DATABASE_URL",
+)
+# FILE PATH
+FILE_NAME = "schools-2025-states-eventchart.csv"
 engine = create_engine(SQLALCHEMY_DATABASE_URL)
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 
@@ -53,25 +55,6 @@ def convert_csv_to_json(csv_file, json_file):
 # Usage
 
 
-def reset_database():
-    """
-    Drops all tables from the database and recreates them.
-    This function should only be used in a testing environment.
-    """
-    db = SessionLocal()
-    try:
-        # Drop all tables
-        Base.metadata.drop_all(bind=engine)
-        print("All tables dropped successfully.")
-
-        # Recreate the tables
-        Base.metadata.create_all(bind=engine)
-        print("All tables recreated successfully.")
-
-    finally:
-        db.close()
-
-
 # Load events into the database
 def load_events():
     db = SessionLocal()
@@ -101,6 +84,5 @@ def load_events():
 
 
 if __name__ == "__main__":
-    reset_database()
-    convert_csv_to_json("event_charts/some-competition-2025.csv", "events.json")
+    convert_csv_to_json(FILE_NAME, "events.json")
     load_events()
