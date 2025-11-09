@@ -892,7 +892,7 @@ async def get_event_results(request: Request, db: Session = Depends(get_db)):
                                 )
                             db.commit()
             valid_participants = []
-            for se in participant:
+            for se in participants:
                 if se.swimmer is None:
                     logging.info(
                         f"Warning: SwimmerEvent {se.id} has null swimmer (swimmer_id: {se.swimmer_id})"
