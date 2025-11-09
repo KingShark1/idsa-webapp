@@ -879,11 +879,6 @@ async def get_event_results(request: Request, db: Session = Depends(get_db)):
                             try:
                                 swimmer_points[
                                     (se.swimmer.age_group, se.swimmer.gender)
-                                ][se.swimmer_id] += config["medal_points"][
-                                    f"{se.medal}"
-                                ]
-                                swimmer_points[
-                                    (se.swimmer.age_group, se.swimmer.gender)
                                 ][se.swimmer_id] = config["medal_points"][
                                     f"{se.medal}"
                                 ]
@@ -896,6 +891,31 @@ async def get_event_results(request: Request, db: Session = Depends(get_db)):
                                     f"Error assigning points to swimmer {se.swimmer_id}: {e} in Event {event.id}"
                                 )
                             db.commit()
+            valid_participants = []
+            for se in participant:
+                if se.swimmer is None:
+                    logging.info(
+                        f"Warning: SwimmerEvent {se.id} has null swimmer (swimmer_id: {se.swimmer_id})"
+                    )
+                    continue
+                valid_participants.append(
+                    {
+                        "id": se.id,
+                        "swimmer_id": se.swimmer_id,
+                        "event_id": se.event_id,
+                        "medal": se.medal,
+                        "time": se.time,
+                        "swimmer": {
+                            "id": se.swimmer.id,
+                            "name": se.swimmer.name,
+                            "dob": se.swimmer.dob,
+                            "sfi_id": se.swimmer.sfi_id,
+                            "age_group": se.swimmer.age_group,
+                            "gender": se.swimmer.gender,
+                            "club": se.swimmer.club,
+                        },
+                    }
+                )
 
             event_results.append(
                 {
@@ -904,25 +924,7 @@ async def get_event_results(request: Request, db: Session = Depends(get_db)):
                     "age_group": event.age_group,
                     "gender": event.gender,
                     "relay": False,
-                    "participants": [
-                        {
-                            "id": se.id,
-                            "swimmer_id": se.swimmer_id,
-                            "event_id": se.event_id,
-                            "medal": se.medal,
-                            "time": se.time,
-                            "swimmer": {
-                                "id": se.swimmer.id,
-                                "name": se.swimmer.name,
-                                "dob": se.swimmer.dob,
-                                "sfi_id": se.swimmer.sfi_id,
-                                "age_group": se.swimmer.age_group,
-                                "gender": se.swimmer.gender,
-                                "club": se.swimmer.club,
-                            },
-                        }
-                        for se in participants
-                    ],
+                    "participants": valid_participants,
                 }
             )
 
