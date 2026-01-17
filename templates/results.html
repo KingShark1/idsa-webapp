@@ -37,8 +37,8 @@
                         {{ event.id }} : {{ event.name }} {% if event.age_group
                         == 0 %} Senior {{ "Men" if event.gender == "male" else
                         "Women" }} {% else %} {{ "Boys" if event.gender ==
-                        "male" else "Girls" }} Group {{ event.age_group }} {%
-                        endif %}
+                        "male" else "Girls" }} Group {{ event.age_group - 1 }}
+                        {% endif %}
                     </h3>
                     {% if event.relay %}
                     <!-- Display Relay Event Results -->

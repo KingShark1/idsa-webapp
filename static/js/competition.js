@@ -95,7 +95,8 @@ document.addEventListener("DOMContentLoaded", () => {
           if (event.participant_count > 0) {
             // Only include events with participants
             const ageGroupText =
-              event.age_group === 0 ? "Senior" : `Group ${event.age_group}`;
+              event.age_group === 0 ? "Senior" : `Group ${event.age_group - 1}`;
+            // event.age_group === 2 ? "U - 17" : "U - 14";
             const genderText =
               event.gender === "male"
                 ? event.age_group === 0
