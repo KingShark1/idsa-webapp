@@ -96,15 +96,15 @@ document.addEventListener("DOMContentLoaded", () => {
             // Only include events with participants
             // const ageGroupText =
             //   event.age_group === 0 ? "Senior" : `Group ${event.age_group - 1}`;
-
+            console.log(event.age);
+            let AGE_GROUP_TEXT_MAP = {
+              2: "U - 15",
+              3: "U - 11",
+              4: "U - 9",
+            };
             const ageGroupText =
-              event.age_group === 2
-                ? "U - 15"
-                : event.age_group === 3
-                  ? "U - 11"
-                  : event.age_group === 4
-                    ? "U - 9"
-                    : `Group ${event.age_group - 1}`; // Fallback for other age groups
+              AGE_GROUP_TEXT_MAP[event.age_group] ||
+              `Group ${event.age_group - 1}`; // Fallback for other age groups
             // event.age_group === 2 ? "U - 17" : "U - 14";
             const genderText =
               event.gender === "male"
