@@ -102,9 +102,7 @@ document.addEventListener("DOMContentLoaded", () => {
               3: "U - 11",
               4: "U - 9",
             };
-            const ageGroupText =
-              AGE_GROUP_TEXT_MAP[event.age_group] ||
-              `Group ${event.age_group - 1}`; // Fallback for other age groups
+            const ageGroupText = AGE_GROUP_TEXT_MAP[event.age_group];
             // event.age_group === 2 ? "U - 17" : "U - 14";
             const genderText =
               event.gender === "male"
