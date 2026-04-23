@@ -2,11 +2,12 @@
   "totalDays": 1,
 
   "eventsByDay": {
-    "1": [1, 68]
+    "1": [1, 24]
   },
   "age_group_map": {
-    "U - 17": 2,
-    "U - 14": 3
+    "U - 15": 2,
+    "U - 11": 3,
+    "U - 9": 4
   },
 
   "max_events_per_age_group": {
@@ -44,6 +45,6 @@
     "6": 2
   },
   "min_participants_for_relay_points": 6,
-  "min_participants_for_points": 6,
+  "min_participants_for_points": 3,
   "laneOrder": [4, 5, 3, 6, 2, 7, 1, 8]
 }

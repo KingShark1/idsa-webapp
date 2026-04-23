@@ -94,8 +94,17 @@ document.addEventListener("DOMContentLoaded", () => {
         filteredEvents.forEach((event) => {
           if (event.participant_count > 0) {
             // Only include events with participants
+            // const ageGroupText =
+            //   event.age_group === 0 ? "Senior" : `Group ${event.age_group - 1}`;
+
             const ageGroupText =
-              event.age_group === 0 ? "Senior" : `Group ${event.age_group - 1}`;
+              event.age_group === 2
+                ? "U - 15"
+                : event.age_group === 3
+                  ? "U - 11"
+                  : event.age_group === 4
+                    ? "U - 9"
+                    : `Group ${event.age_group - 1}`; // Fallback for other age groups
             // event.age_group === 2 ? "U - 17" : "U - 14";
             const genderText =
               event.gender === "male"
