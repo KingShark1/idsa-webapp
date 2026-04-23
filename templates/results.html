@@ -36,10 +36,22 @@
                     <h3>
                         {{ event.id }} : {{ event.name }} {% if event.age_group
                         == 0 %} Senior {{ "Men" if event.gender == "male" else
-                        "Women" }} {% else %} {{ "Boys" if event.gender ==
+                        "Women" }} {% elif event.age_group == 2 %} U - 15 {{
+                        "Boys" if event.gender == "male" else "Girls" }} {% elif
+                        event.age_group == 3 %} U - 11 {{ "Boys" if event.gender
+                        == "male" else "Girls" }} {% elif event.age_group == 4
+                        %} U - 9 {{ "Boys" if event.gender == "male" else
+                        "Girls" }} {% else %} {{ "Boys" if event.gender ==
                         "male" else "Girls" }} Group {{ event.age_group - 1 }}
                         {% endif %}
                     </h3>
+                    <!--<h3>
+                        {{ event.id }} : {{ event.name }} {% if event.age_group
+                        == 0 %} Senior {{ "Men" if event.gender == "male" else
+                        "Women" }} {% else %} {{ "Boys" if event.gender ==
+                        "male" else "Girls" }} Group {{ event.age_group - 1 }}
+                        {% endif %}
+                    </h3>-->
                     {% if event.relay %}
                     <!-- Display Relay Event Results -->
                     <table>
