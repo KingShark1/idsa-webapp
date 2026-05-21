@@ -98,9 +98,12 @@ document.addEventListener("DOMContentLoaded", () => {
             //   event.age_group === 0 ? "Senior" : `Group ${event.age_group - 1}`;
             console.log(event.age);
             let AGE_GROUP_TEXT_MAP = {
-              2: "U - 15",
-              3: "U - 11",
-              4: "U - 9",
+              0: "Senior",
+              1: "Group A",
+              2: "Group B",
+              3: "Group C",
+              4: "Group D",
+              5: "Group E",
             };
             const ageGroupText = AGE_GROUP_TEXT_MAP[event.age_group];
             // event.age_group === 2 ? "U - 17" : "U - 14";

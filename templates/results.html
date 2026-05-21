@@ -34,17 +34,15 @@
                 </button>
                 <div class="event-group">
                     <h3>
+                        {% set age_labels = {0: "Senior", 1: "Group A", 2:
+                        "Group B", 3: "Group C", 4: "Group D", 5: "Group E"} %}
                         {{ event.id }} : {{ event.name }} {% if event.age_group
                         == 0 %} Senior {{ "Men" if event.gender == "male" else
-                        "Women" }} {% elif event.age_group == 2 %} U - 15 {{
-                        "Boys" if event.gender == "male" else "Girls" }} {% elif
-                        event.age_group == 3 %} U - 11 {{ "Boys" if event.gender
-                        == "male" else "Girls" }} {% elif event.age_group == 4
-                        %} U - 9 {{ "Boys" if event.gender == "male" else
-                        "Girls" }} {% else %} {{ "Boys" if event.gender ==
-                        "male" else "Girls" }} Group {{ event.age_group - 1 }}
-                        {% endif %}
+                        "Women" }} {% else %} {{ age_labels.get(event.age_group,
+                        "Unknown") }} {{ "Boys" if event.gender == "male" else
+                        "Girls" }} {% endif %}
                     </h3>
+
                     <!--<h3>
                         {{ event.id }} : {{ event.name }} {% if event.age_group
                         == 0 %} Senior {{ "Men" if event.gender == "male" else
