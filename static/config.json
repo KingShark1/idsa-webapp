@@ -8,8 +8,7 @@
     "Senior": 0,
     "U - 19": 1,
     "U - 17": 2,
-    "U - 14": 3,
-    "U - 11": 4
+    "U - 14": 3
   },
 
   "max_events_per_age_group": {
