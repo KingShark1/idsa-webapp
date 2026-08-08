@@ -14,7 +14,7 @@ SQLALCHEMY_DATABASE_URL = os.environ.get(
     "DATABASE_URL",
 )
 # FILE PATH
-FILE_NAME = "event_charts/district-indore-2026.csv"
+FILE_NAME = "event_charts/Schools_District_2026.csv"
 engine = create_engine(SQLALCHEMY_DATABASE_URL)
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 
