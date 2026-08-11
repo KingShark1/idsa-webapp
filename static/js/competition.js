@@ -99,9 +99,9 @@ document.addEventListener("DOMContentLoaded", () => {
             console.log(event.age);
             let AGE_GROUP_TEXT_MAP = {
               0: "Senior",
-              1: "Group A",
-              2: "Group B",
-              3: "Group C",
+              1: "U - 19",
+              2: "U - 17",
+              3: "U - 14",
               4: "Group D",
               5: "Group E",
             };
